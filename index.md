@@ -1,5 +1,3 @@
-# Cristian Espinal Maya
-
 **Email:** [cjespinalm@eafit.edu.co](mailto:cjespinalm@eafit.edu.co)  
 **Mobile:** +57-305-338-8895  
 **GitHub:** [Cespial](https://github.com/Cespial)  
