@@ -7,7 +7,7 @@
 
 ## Education
 - **Universidad EAFIT**, Medellín, Antioquia  
-  Master in Applied Economics (current), Sep 2023 - Dec 2024  
+  Master in Economics (current), Sep 2023 - Dec 2024  
   *Courses: Impact Evaluation, Microeconomics, Macroeconomics, Applied Econometrics.*
 
 - **Universidad de Medellín**, Medellín, Antioquia  
