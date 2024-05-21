@@ -25,7 +25,7 @@
 - Applied econometrics: Conduct institution-specific studies using applied econometrics techniques, aimed at generating relevant insights and supporting strategic decision-making.
 
 ### ODO, Medellín, Antioquia
-**Business Analyst**, Jan 2022 - Current  
+**Business Analyst**, Jan 2022 - Dec 2023  
 - Project Follow-up: Responsibility for follow-up of projects presented to public and private institutions.
 - B2B Portfolio Building: Build a strong portfolio of B2B opportunities to structure projects for multiple public and private institutions.
 - Stakeholder Relations: Participate as the organization's liaison in meetings with public and private institutions involved in the projects led.
