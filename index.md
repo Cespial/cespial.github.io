@@ -7,11 +7,11 @@
 
 ## Education
 - **Universidad EAFIT**, Medellín, Antioquia  
-  Master in Economics (current), Sep 2023 - Dec 2024  
+  M.A. in Economics, Sep 2023 - Dec 2024  
   *Courses: Impact Evaluation, Microeconomics, Macroeconomics, Applied Econometrics.*
 
 - **Universidad de Medellín**, Medellín, Antioquia  
-  Bachelor in Economics, Jan 2018 - Sep 2022  
+  B.A. in Economics, Jan 2018 - Sep 2022  
   *Courses: Data Analytics, Corporate Finance, Market and Credit Risk Management, Mergers and Acquisitions (M&A).*
 
 ## Skills Summary
@@ -25,7 +25,7 @@
 - Applied econometrics: Conduct institution-specific studies using applied econometrics techniques, aimed at generating relevant insights and supporting strategic decision-making.
 
 ### ODO, Medellín, Antioquia
-**Business Analyst**, Jan 2022 - Dec 2023  
+**Business Analyst**, Jan 2022 - Current 
 - Project Follow-up: Responsibility for follow-up of projects presented to public and private institutions.
 - B2B Portfolio Building: Build a strong portfolio of B2B opportunities to structure projects for multiple public and private institutions.
 - Stakeholder Relations: Participate as the organization's liaison in meetings with public and private institutions involved in the projects led.
