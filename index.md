@@ -19,22 +19,27 @@
 - **Tools:** 365, MatLab, PowerBI, Tableau
 
 ## Experience
-### Institución Universitaria Pascual Bravo, Medellín, Colombia
-**Quantitative Analyst**, Octubre 2023 - Current  
-- Data analysis: Serve as a quantitative analyst for the Technology Surveillance and Competitive Intelligence Unit, utilizing advanced tools such as R, SQL, and PowerBI for data processing and analysis.
-- Applied econometrics: Conduct institution-specific studies using applied econometrics techniques, aimed at generating relevant insights and supporting strategic decision-making.
+### SUD, Medellín, Colombia (Freelance)
+**Business Developer**, Jan 2022 - Present  
+- Spearheaded end-to-end project execution and built a robust B2B portfolio across sectors. Forged strategic partnerships with public institutions and private firms, enabling data-driven innovation.
 
-### ODO, Medellín, Antioquia
-**Business Analyst**, Jan 2022 - Current 
-- Project Follow-up: Responsibility for follow-up of projects presented to public and private institutions.
-- B2B Portfolio Building: Build a strong portfolio of B2B opportunities to structure projects for multiple public and private institutions.
-- Stakeholder Relations: Participate as the organization's liaison in meetings with public and private institutions involved in the projects led.
+### Institución Universitaria ESUMER, Medellín, Colombia (Occasional)
+**Professor**, Jan 2025 - Present
+- Taught postgraduate courses on AI for Organizations, Data Analytics, Economic Integration, and Economics.
 
 ### Politécnico Jaime Isaza Cadavid, Medellín, Colombia
-**Advisor to the Financial Management**, Agosto 2023 - Dic 2023  
-- Financial advisory: Advise the Financial Management, Vice Rector's Office for Teaching and Coordination of Self-evaluation in the creation and execution of an instrument to evaluate the financial viability of academic programs.
+**Financial Advisor**, Aug 2023 - Dec 2024  
+- Advised Financial Management on auditing reports and developed financial models and data tools for accounting, treasury, and budgeting.
 
-### ROTORR & Contraloría General de la República, Bogotá, Colombia
+### Alcaldía de Medellín, Medellín, Colombia
+**Technical Advisor**, Oct 2024 - Dec 2024
+- Supported the rollout of “Estud-IA,” a city-led AI education initiative for 400 students. Provided technical guidance to the Secretary of Economic Development and coordinated academic implementation with ESUMER University.
+
+### Institución Universitaria Pascual Bravo, Medellín, Colombia
+**Quantitative Analyst**, Oct 2023 - Dec 2024  
+- Delivered analytics consulting for the University’s Technological Surveillance Unit. Designed dashboards and data models to support competitive intelligence and institutional foresight.
+
+### Contraloría General de la República, Bogotá, Colombia
 **Contractor**, Agosto 2023 - Sept 2023  
 - Implementation support: Support the execution of agreements 373 and 379 entered into between [ROTORR/UNAL](https://rotorr.co) and the Office of the Comptroller General of the Republic for the purpose of supporting the technological transformation processes of the Information, Analysis and Immediate Reaction Directorate (DIARI).
 
