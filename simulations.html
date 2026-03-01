@@ -507,9 +507,7 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
     for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
       if(grid[r][c]){
         cx.fillStyle=alive;cx.globalAlpha=0.85;
-        cx.beginPath();
-        cx.roundRect(c*cellSize+0.5,r*cellSize+0.5,cellSize-1,cellSize-1,1.5);
-        cx.fill();
+        cx.fillRect(c*cellSize+0.5,r*cellSize+0.5,cellSize-1,cellSize-1);
         cx.globalAlpha=1;
       }
     }
@@ -587,7 +585,6 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
   }
 
   function render(){
-    resize();
     const bg=css('--graph-bg');cx.fillStyle=bg;cx.fillRect(0,0,W,H);
 
     const lived=weeksLived();
@@ -658,7 +655,7 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
   function animate(){render();animFrame=requestAnimationFrame(animate);}
   // Use IntersectionObserver to only animate when visible
   const obs=new IntersectionObserver(entries=>{
-    if(entries[0].isIntersecting){animate();}else{cancelAnimationFrame(animFrame);}
+    if(entries[0].isIntersecting){cancelAnimationFrame(animFrame);animate();}else{cancelAnimationFrame(animFrame);}
   },{threshold:0.1});
   obs.observe(cv);
 
@@ -668,7 +665,7 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
       document.querySelectorAll('[data-expectancy]').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
       lifeExpectancy=parseInt(btn.dataset.expectancy);
-      render();
+      resize();render();
     });
   });
 })();
@@ -757,7 +754,7 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
 
       if(p.fallen)fallenCount++;
 
-      const progress=Math.min(1,(p.y-p.oy)/(H-p.oy));
+      const progress=Math.min(1,(p.y-p.oy)/Math.max(1,H-p.oy));
       const alpha=p.fallen?0.3:0.5+0.5*(1-progress);
 
       cx.beginPath();cx.arc(p.x,p.y,p.size,0,Math.PI*2);
@@ -842,8 +839,8 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
       const rx=headR*0.9*r,ry=headR*1.0*r;
       const px=cxc+Math.cos(a)*rx,py=cyc+Math.sin(a)*ry*0.85;
       // Skip eye and nose holes
-      const inLeftEye=Math.hypot(px-(cxc-headR*0.32),py-(cyc-headR*0.05))<headR*0.15;
-      const inRightEye=Math.hypot(px-(cxc+headR*0.32),py-(cyc-headR*0.05))<headR*0.15;
+      const inLeftEye=Math.hypot(px-(cxc-headR*0.32),py-(cyc-headR*0.05))<headR*0.18;
+      const inRightEye=Math.hypot(px-(cxc+headR*0.32),py-(cyc-headR*0.05))<headR*0.18;
       const inNose=py>cyc+headR*0.2&&py<cyc+headR*0.4&&Math.abs(px-cxc)<headR*0.07;
       if(!inLeftEye&&!inRightEye&&!inNose){
         pts.push({x:px,y:py});
