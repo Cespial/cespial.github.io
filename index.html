@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristian Espinal Maya</title>
+  <meta name="description" content="Software Engineer & Data Intelligence — Medellín, Colombia">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --serif: 'Cormorant Garamond', 'Georgia', serif;
+      --mono: 'IBM Plex Mono', 'Menlo', monospace;
+
+      --bg: #FAF8F5;
+      --bg-subtle: #F2EFEA;
+      --text: #1A1714;
+      --text-secondary: #6B6560;
+      --text-tertiary: #9B9590;
+      --accent: #8B4513;
+      --accent-hover: #A0522D;
+      --border: #E5E0D8;
+      --selection-bg: #8B451320;
+      --link-underline: #8B451340;
+      --card-shadow: 0 1px 3px rgba(26, 23, 20, 0.04);
+    }
+
+    [data-theme="dark"] {
+      --bg: #141210;
+      --bg-subtle: #1E1C18;
+      --text: #E8E4DE;
+      --text-secondary: #9B9590;
+      --text-tertiary: #6B6560;
+      --accent: #C8875A;
+      --accent-hover: #D4976A;
+      --border: #2A2825;
+      --selection-bg: #C8875A20;
+      --link-underline: #C8875A40;
+      --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ::selection {
+      background: var(--selection-bg);
+      color: var(--accent);
+    }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--serif);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.5s ease, color 0.4s ease;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5rem 0 1rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .nav-left {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-left a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-left a:hover,
+    .nav-left a.active {
+      color: var(--text);
+    }
+
+    .theme-toggle {
+      appearance: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+      color: var(--text-secondary);
+    }
+
+    .theme-toggle:hover {
+      background: var(--bg-subtle);
+      color: var(--text);
+    }
+
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 1rem 0 3.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .hero .subtitle {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--text-tertiary);
+      letter-spacing: 0.03em;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero .bio {
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 560px;
+    }
+
+    .hero .bio strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero .bio a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--link-underline);
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hero .bio a:hover {
+      color: var(--accent-hover);
+      border-color: var(--accent);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 0 0 3rem;
+    }
+
+    .divider-ornament {
+      text-align: center;
+      margin: 3rem 0;
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+      letter-spacing: 0.5em;
+      user-select: none;
+    }
+
+    /* ── Index Section ── */
+    .index-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-list {
+      list-style: none;
+    }
+
+    .project-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
+    }
+
+    .project-item a {
+      text-decoration: none;
+      display: block;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.3s ease;
+      display: inline;
+    }
+
+    .project-item a:hover .project-title {
+      color: var(--accent);
+    }
+
+    .project-arrow {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      margin-left: 0.4rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+      transform: translateX(0);
+    }
+
+    .project-item a:hover .project-arrow {
+      transform: translateX(3px);
+      color: var(--accent);
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+      line-height: 1.65;
+    }
+
+    .project-meta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-tertiary);
+      margin-top: 0.35rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Fourier Section ── */
+    .fourier-section {
+      margin: 1rem 0 3.5rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fourier-section .section-label {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 1rem;
+    }
+
+    .fourier-text {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .fourier-text a {
+      color: var(--accent);
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 500;
+      border-bottom: 1px solid var(--link-underline);
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .fourier-text a:hover {
+      color: var(--accent-hover);
+      border-color: var(--accent);
+    }
+
+    /* ── Stack / Colophon ── */
+    .colophon {
+      margin-bottom: 3rem;
+    }
+
+    .colophon p {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+      line-height: 1.8;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text-tertiary);
+      letter-spacing: 0.02em;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .social-links a {
+      color: var(--text-tertiary);
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .social-links a:hover {
+      color: var(--text);
+    }
+
+    .social-links svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── Fade-in animations ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger children */
+    .stagger > .fade-in:nth-child(1) { transition-delay: 0s; }
+    .stagger > .fade-in:nth-child(2) { transition-delay: 0.06s; }
+    .stagger > .fade-in:nth-child(3) { transition-delay: 0.12s; }
+    .stagger > .fade-in:nth-child(4) { transition-delay: 0.18s; }
+    .stagger > .fade-in:nth-child(5) { transition-delay: 0.24s; }
+    .stagger > .fade-in:nth-child(6) { transition-delay: 0.30s; }
+    .stagger > .fade-in:nth-child(7) { transition-delay: 0.36s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      .page { padding: 0 1.25rem; }
+      nav { padding: 2rem 0 0.75rem; margin-bottom: 2rem; }
+      .nav-left { gap: 1rem; }
+      .nav-left a { font-size: 0.7rem; }
+      .hero { padding: 0.5rem 0 2.5rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero .subtitle { font-size: 0.72rem; }
+      .hero .bio { font-size: 0.95rem; }
+      .index-section { margin-bottom: 2.5rem; }
+      footer { padding: 1.5rem 0 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-left">
+        <a href="#" class="active">index</a>
+        <a href="#work">work</a>
+        <a href="#fourier">fourier</a>
+        <a href="mailto:cristian@fourier.dev">contact</a>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle theme" id="themeToggle">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="4.5"/>
+          <path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none">
+          <path d="M21.75 15.5A9.72 9.72 0 018.5 2.25 9.75 9.75 0 1021.75 15.5z"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero fade-in">
+      <h1>Cristian Espinal Maya</h1>
+      <p class="subtitle">Software Engineer & Data Intelligence · Medellín, Colombia</p>
+      <p class="bio">
+        Full-stack engineer building <strong>AI-powered platforms</strong>,
+        <strong>territorial intelligence systems</strong>, and computational tools
+        for the Colombian public sector and beyond. Founder of
+        <a href="https://fourier.dev" target="_blank" rel="noopener">Fourier</a>, a boutique
+        software engineering firm focused on precision and rigor. Deep expertise in
+        <strong>LLM integration</strong>, geospatial analysis, and fiscal technology.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Work Index -->
+    <section id="work">
+
+      <!-- Platforms -->
+      <div class="index-section fade-in">
+        <h2 class="section-label">Platforms</h2>
+        <ul class="project-list stagger">
+          <li class="project-item fade-in">
+            <a href="https://superapp-tributaria-colombia.vercel.app" target="_blank" rel="noopener">
+              <span class="project-title">SuperApp Tributaria Colombia</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Colombia's most comprehensive tax platform. 35 calculators, 1,294+ articles of the Tax Statute indexed, AI chat with RAG.</p>
+              <p class="project-meta">Next.js · Claude API · Pinecone · TypeScript</p>
+            </a>
+          </li>
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial/mga-estructurador" target="_blank" rel="noopener">
+              <span class="project-title">MGA Estructurador</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Platform for structuring government grant projects under Colombia's MGA methodology with contextual AI assistance.</p>
+              <p class="project-meta">Next.js · Supabase · Zod · TypeScript</p>
+            </a>
+          </li>
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial" target="_blank" rel="noopener">
+              <span class="project-title">VFPA</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Financial viability calculator for academic programs. 7-step wizard with 24-semester projections and sensitivity analysis.</p>
+              <p class="project-meta">Next.js · Zustand · Recharts · ExcelJS</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Intelligence & Data -->
+      <div class="index-section fade-in">
+        <h2 class="section-label">Intelligence &amp; Data</h2>
+        <ul class="project-list stagger">
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial/observatorio-laboral-uraba" target="_blank" rel="noopener">
+              <span class="project-title">Observatorio Regional de Urabá</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Territorial intelligence platform for 11 municipalities. Geospatial, socioeconomic, security, health &amp; labor market data.</p>
+              <p class="project-meta">FastAPI · PostGIS · Deck.gl · MapLibre GL</p>
+            </a>
+          </li>
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial/observatorio-concejo-medellin" target="_blank" rel="noopener">
+              <span class="project-title">Observatorio Concejo de Medellín</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Data observatory for the city council. 6 thematic dashboards, legislative analysis, and per-comuna mapping.</p>
+              <p class="project-meta">Next.js · Mapbox GL · Recharts · Supabase</p>
+            </a>
+          </li>
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial" target="_blank" rel="noopener">
+              <span class="project-title">Colombia Tech Dashboard</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Interactive dashboard mapping 2,126+ Colombian startups, $362M invested, sector analysis and geographic distribution.</p>
+              <p class="project-meta">Next.js · D3.js · React Query · Express</p>
+            </a>
+          </li>
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial" target="_blank" rel="noopener">
+              <span class="project-title">Observatorio Laboral Urabá</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Labor market intelligence with multi-source scraping across 8 job platforms. NLP skill extraction and salary analysis.</p>
+              <p class="project-meta">Python · Playwright · NLTK · pandas</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tools & Experiments -->
+      <div class="index-section fade-in">
+        <h2 class="section-label">Tools &amp; Experiments</h2>
+        <ul class="project-list stagger">
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial" target="_blank" rel="noopener">
+              <span class="project-title">FincaBot</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">AI-powered Telegram bot for farm task management. Natural language commands and voice message support in Spanish.</p>
+              <p class="project-meta">Python · Claude API · Whisper · SQLite</p>
+            </a>
+          </li>
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial/declaraciones_ICA" target="_blank" rel="noopener">
+              <span class="project-title">Declaraciones ICA</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Municipal tax declaration platform for Antioquia with AI-powered rate extraction per municipality.</p>
+              <p class="project-meta">TypeScript · Next.js · Claude API</p>
+            </a>
+          </li>
+          <li class="project-item fade-in">
+            <a href="https://github.com/Cespial/Mi_OCR_Facturas" target="_blank" rel="noopener">
+              <span class="project-title">Mi OCR Facturas</span>
+              <span class="project-arrow">&#8594;</span>
+              <p class="project-desc">Invoice data extraction tool using Claude Vision API. Structured output from scanned documents.</p>
+              <p class="project-meta">Python · Claude Vision API</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Fourier -->
+    <section id="fourier" class="fourier-section fade-in">
+      <h2 class="section-label">Fourier</h2>
+      <p class="fourier-text">
+        Fourier is a boutique nearshore software engineering firm.
+        We build with precision, rigor, and elegance &mdash;
+        partnering with US-based teams who value craftsmanship over velocity.
+        <br><br>
+        <a href="https://fourier.dev" target="_blank" rel="noopener">fourier.dev</a>
+      </p>
+    </section>
+
+    <!-- Colophon -->
+    <div class="colophon fade-in">
+      <p>
+        Built with plain HTML, CSS &amp; JS. Typeset in Cormorant Garamond &amp; IBM Plex Mono.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="fade-in">
+      <span class="footer-copy">&copy; 2026 Cristian Espinal Maya</span>
+      <div class="social-links">
+        <!-- GitHub -->
+        <a href="https://github.com/Cespial" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+        <!-- X / Twitter -->
+        <a href="https://x.com/cespial" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/cespial" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <!-- Email -->
+        <a href="mailto:cristian@fourier.dev" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m2 7 10 7 10-7"/>
+          </svg>
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // ── Theme Toggle ──
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const iconSun = toggle.querySelector('.icon-sun');
+    const iconMoon = toggle.querySelector('.icon-moon');
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      if (theme === 'dark') {
+        iconSun.style.display = 'none';
+        iconMoon.style.display = 'block';
+      } else {
+        iconSun.style.display = 'block';
+        iconMoon.style.display = 'none';
+      }
+    }
+
+    // Initialize from localStorage or system preference
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      setTheme(saved);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    // ── Scroll Reveal ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
