@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulaciones — Cristian Espinal Maya</title>
+  <meta name="description" content="Interactive simulations: Fourier epicycles, Lorenz attractor, Game of Life, memento mori visualizations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .sim-epigraph {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text-tertiary);
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    .sim-epigraph .attr {
+      display: block;
+      font-style: normal;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.5rem;
+      color: var(--text-tertiary);
+      opacity: 0.7;
+    }
+    .memento-divider {
+      text-align: center;
+      padding: 3rem 0 1rem;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--text-tertiary);
+      opacity: 0.5;
+    }
+    .memento-divider::before,
+    .memento-divider::after {
+      content: '———';
+      margin: 0 1rem;
+      opacity: 0.3;
+    }
+    .sim-stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .sim-stat {
+      text-align: center;
+      font-family: var(--mono);
+    }
+    .sim-stat .val {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .sim-stat .lbl {
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
+      margin-top: 0.15rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">index</a>
+      <a href="writing.html"><span data-lang="es">escritos</span><span data-lang="en">writing</span></a>
+      <a href="notes.html"><span data-lang="es">notas</span><span data-lang="en">notes</span></a>
+      <a href="simulations.html" class="active"><span data-lang="es">simulaciones</span><span data-lang="en">simulations</span></a>
+      <a href="art.html"><span data-lang="es">arte</span><span data-lang="en">art</span></a>
+      <a href="reading.html"><span data-lang="es">lecturas</span><span data-lang="en">reading</span></a>
+      <a href="cv.html">cv</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none"><path d="M21.75 15.5A9.72 9.72 0 018.5 2.25 9.75 9.75 0 1021.75 15.5z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-header fade-in">
+    <h1><span data-lang="es">Simulaciones</span><span data-lang="en">Simulations</span></h1>
+    <p class="page-subtitle">
+      <span data-lang="es">Visualizaciones interactivas y experimentos computacionales. Dibuja, arrastra y juega con las matem&aacute;ticas.</span>
+      <span data-lang="en">Interactive visualizations and computational experiments. Draw, drag, and play with the mathematics.</span>
+    </p>
+  </section>
+  <div class="divider"></div>
+
+  <!-- ═══ 1. FOURIER EPICYCLES ═══ -->
+  <div class="sim-block fade-in">
+    <h2 class="section-label"><span data-lang="es">Epiciclos de Fourier</span><span data-lang="en">Fourier Epicycles</span></h2>
+    <div class="sim-canvas-wrap">
+      <canvas id="fourierCanvas"></canvas>
+      <div class="sim-controls">
+        <button class="sim-btn active" data-terms="5">5</button>
+        <button class="sim-btn" data-terms="15">15</button>
+        <button class="sim-btn" data-terms="30">30</button>
+        <button class="sim-btn" data-terms="60">60</button>
+        <button class="sim-btn" data-terms="120">120</button>
+        <span style="font-family:var(--mono);font-size:0.6rem;color:var(--text-tertiary);margin-left:auto"><span data-lang="es">t&eacute;rminos</span><span data-lang="en">terms</span></span>
+      </div>
+    </div>
+    <p class="sim-desc">
+      <span data-lang="es">Cualquier forma cerrada puede reconstruirse sumando c&iacute;rculos giratorios (epiciclos). Dibuja en el canvas o cambia la cantidad de t&eacute;rminos para ver c&oacute;mo la serie de Fourier aproxima la curva original.</span>
+      <span data-lang="en">Any closed shape can be reconstructed by summing rotating circles (epicycles). Draw on the canvas or change the number of terms to see how the Fourier series approximates the original curve.</span>
+    </p>
+  </div>
+
+  <!-- ═══ 2. LORENZ ATTRACTOR ═══ -->
+  <div class="sim-block fade-in">
+    <h2 class="section-label"><span data-lang="es">Atractor de Lorenz</span><span data-lang="en">Lorenz Attractor</span></h2>
+    <div class="sim-canvas-wrap">
+      <canvas id="lorenzCanvas"></canvas>
+      <div class="sim-controls">
+        <button class="sim-btn" id="lorenzReset"><span data-lang="es">reiniciar</span><span data-lang="en">reset</span></button>
+        <button class="sim-btn" id="lorenzPause"><span data-lang="es">pausar</span><span data-lang="en">pause</span></button>
+      </div>
+    </div>
+    <p class="sim-desc">
+      <span data-lang="es">El atractor de Lorenz &mdash; un sistema ca&oacute;tico determinista. Peque&ntilde;as diferencias en las condiciones iniciales producen trayectorias radicalmente diferentes: el efecto mariposa. &sigma;=10, &rho;=28, &beta;=8/3.</span>
+      <span data-lang="en">The Lorenz attractor &mdash; a deterministic chaotic system. Tiny differences in initial conditions produce radically different trajectories: the butterfly effect. &sigma;=10, &rho;=28, &beta;=8/3.</span>
+    </p>
+  </div>
+
+  <!-- ═══ 3. GAME OF LIFE ═══ -->
+  <div class="sim-block fade-in">
+    <h2 class="section-label"><span data-lang="es">Juego de la Vida</span><span data-lang="en">Game of Life</span></h2>
+    <div class="sim-canvas-wrap">
+      <canvas id="lifeCanvas"></canvas>
+      <div class="sim-controls">
+        <button class="sim-btn" id="lifePlay"><span data-lang="es">iniciar</span><span data-lang="en">play</span></button>
+        <button class="sim-btn" id="lifeClear"><span data-lang="es">limpiar</span><span data-lang="en">clear</span></button>
+        <button class="sim-btn" id="lifeRandom">random</button>
+        <button class="sim-btn" id="lifeGlider">glider</button>
+        <span style="font-family:var(--mono);font-size:0.55rem;color:var(--text-tertiary);margin-left:auto" id="lifeGen">gen 0</span>
+      </div>
+    </div>
+    <p class="sim-desc">
+      <span data-lang="es">El aut&oacute;mata celular de Conway. Haz clic en las celdas para activarlas y presiona iniciar. Reglas simples generan complejidad emergente &mdash; relevante para modelar din&aacute;micas territoriales y urbanas.</span>
+      <span data-lang="en">Conway&rsquo;s cellular automaton. Click cells to toggle them and press play. Simple rules generate emergent complexity &mdash; relevant for modeling territorial and urban dynamics.</span>
+    </p>
+  </div>
+
+  <!-- ═══ MEMENTO MORI SECTION ═══ -->
+  <div class="memento-divider fade-in">memento mori</div>
+
+  <div class="sim-epigraph fade-in">
+    <span data-lang="es">&laquo;No es que tengamos poco tiempo, sino que perdemos mucho.&raquo;</span>
+    <span data-lang="en">&ldquo;It is not that we have a short time to live, but that we waste a good deal of it.&rdquo;</span>
+    <span class="attr">Seneca, De Brevitate Vitae</span>
+  </div>
+
+  <!-- ═══ 4. TEMPUS FUGIT — LIFE CLOCK ═══ -->
+  <div class="sim-block fade-in">
+    <h2 class="section-label"><span data-lang="es">Tempus Fugit &mdash; Reloj de Vida</span><span data-lang="en">Tempus Fugit &mdash; Life Clock</span></h2>
+    <div class="sim-canvas-wrap">
+      <canvas id="tempusCanvas"></canvas>
+      <div class="sim-controls">
+        <button class="sim-btn active" data-expectancy="73">73</button>
+        <button class="sim-btn" data-expectancy="80">80</button>
+        <button class="sim-btn" data-expectancy="90">90</button>
+        <span style="font-family:var(--mono);font-size:0.6rem;color:var(--text-tertiary);margin-left:auto"><span data-lang="es">expectativa (a&ntilde;os)</span><span data-lang="en">expectancy (years)</span></span>
+      </div>
+    </div>
+    <div class="sim-stat-row" id="tempusStats">
+      <div class="sim-stat"><div class="val" id="statLived">—</div><div class="lbl"><span data-lang="es">vividas</span><span data-lang="en">lived</span></div></div>
+      <div class="sim-stat"><div class="val" id="statRemain">—</div><div class="lbl"><span data-lang="es">restantes</span><span data-lang="en">remaining</span></div></div>
+      <div class="sim-stat"><div class="val" id="statPct">—</div><div class="lbl"><span data-lang="es">transcurrido</span><span data-lang="en">elapsed</span></div></div>
+    </div>
+    <p class="sim-desc">
+      <span data-lang="es">Cada c&iacute;rculo es una semana. Las semanas vividas se llenan gradualmente. La expectativa de vida en Colombia es ~73 a&ntilde;os. Una vida humana cabe en una sola pantalla &mdash; un recordatorio visual de la finitud del tiempo. Fecha de nacimiento: 23 de junio de 1999.</span>
+      <span data-lang="en">Each circle is one week. Lived weeks fill in gradually. Life expectancy in Colombia is ~73 years. An entire human life fits on a single screen &mdash; a visual reminder of the finiteness of time. Date of birth: June 23, 1999.</span>
+    </p>
+  </div>
+
+  <!-- ═══ 5. ENTROPY — SAND & DECAY ═══ -->
+  <div class="sim-block fade-in">
+    <h2 class="section-label"><span data-lang="es">Entrop&iacute;a &mdash; Arena y Decadencia</span><span data-lang="en">Entropy &mdash; Sand &amp; Decay</span></h2>
+    <div class="sim-canvas-wrap">
+      <canvas id="entropyCanvas"></canvas>
+      <div class="sim-controls">
+        <button class="sim-btn" id="entropyReset"><span data-lang="es">reconstruir</span><span data-lang="en">rebuild</span></button>
+        <button class="sim-btn" id="entropyPause"><span data-lang="es">pausar</span><span data-lang="en">pause</span></button>
+        <span style="font-family:var(--mono);font-size:0.55rem;color:var(--text-tertiary);margin-left:auto" id="entropyLabel">entropy: 0%</span>
+      </div>
+    </div>
+    <p class="sim-desc">
+      <span data-lang="es">Un texto se desmorona grano a grano, como arena en un reloj. La segunda ley de la termodin&aacute;mica en acci&oacute;n: el desorden siempre aumenta. Haz clic en &laquo;reconstruir&raquo; para restaurar el orden &mdash; pero el decaimiento volver&aacute; a comenzar.</span>
+      <span data-lang="en">A text crumbles grain by grain, like sand in an hourglass. The second law of thermodynamics in action: disorder always increases. Click &ldquo;rebuild&rdquo; to restore order &mdash; but the decay will begin again.</span>
+    </p>
+  </div>
+
+  <!-- ═══ 6. VANITAS — PARTICLE SKULL ═══ -->
+  <div class="sim-block fade-in">
+    <h2 class="section-label"><span data-lang="es">Vanitas &mdash; Polvo al Polvo</span><span data-lang="en">Vanitas &mdash; Dust to Dust</span></h2>
+    <div class="sim-canvas-wrap">
+      <canvas id="vanitasCanvas"></canvas>
+      <div class="sim-controls">
+        <button class="sim-btn" id="vanitasScatter"><span data-lang="es">dispersar</span><span data-lang="en">scatter</span></button>
+        <button class="sim-btn" id="vanitasReform"><span data-lang="es">reformar</span><span data-lang="en">reform</span></button>
+      </div>
+    </div>
+    <p class="sim-desc">
+      <span data-lang="es">Mil part&iacute;culas forman una calavera &mdash; s&iacute;mbolo cl&aacute;sico del <em>vanitas</em>. Al dispersarse, recuerdan que toda forma es transitoria. Al reformarse, que el orden puede emerger del caos. Mueve el mouse para perturbar las part&iacute;culas.</span>
+      <span data-lang="en">A thousand particles form a skull &mdash; the classic <em>vanitas</em> symbol. When scattered, they remind us that all form is transient. When reformed, that order can emerge from chaos. Move your mouse to disturb the particles.</span>
+    </p>
+  </div>
+
+  <div class="sim-epigraph fade-in" style="margin-top:3rem">
+    <span data-lang="es">&laquo;Recuerda que vas a morir. &Uacute;salo no como fuente de miedo, sino como motivaci&oacute;n para vivir una vida plena.&raquo;</span>
+    <span data-lang="en">&ldquo;Remember that you will die. Use it not as a source of fear, but as motivation to live a full life.&rdquo;</span>
+    <span class="attr">Marcus Aurelius, Meditations</span>
+  </div>
+
+  <footer class="fade-in">
+    <span class="footer-copy">&copy; 2026 Cristian Espinal Maya</span>
+    <div class="social-links">
+      <a href="https://github.com/Cespial" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+      <a href="https://x.com/cespial" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://linkedin.com/in/cespial" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="mailto:cristian@fourier.dev" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+// ════ Lang & Theme ════
+const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
+function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
+const sL=localStorage.getItem('lang');if(sL)setLang(sL);
+langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
+const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
+function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
+const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
+themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
+
+function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
+
+// ════════════════════════════════════════
+// 1. FOURIER EPICYCLES (perfected)
+// ════════════════════════════════════════
+(function(){
+  const cv=document.getElementById('fourierCanvas'),cx=cv.getContext('2d');
+  const wrap=cv.parentElement;
+  let W,H,dpr;
+  function resize(){
+    dpr=devicePixelRatio||1;W=wrap.clientWidth;H=Math.min(400,W*0.6);
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
+    cx.setTransform(dpr,0,0,dpr,0,0);
+    if(userPath===defaultPath) makeDefault();
+  }
+  let defaultPath=null,userPath=null;
+
+  function makeDefault(){
+    const path=[];
+    const cx0=W*0.35,cy0=H/2,r=Math.min(W,H)*0.3;
+    for(let i=0;i<200;i++){
+      const a=i/200*Math.PI*2;
+      const rr=r*(0.5+0.5*Math.abs(Math.cos(2.5*a)));
+      path.push({x:cx0+Math.cos(a)*rr,y:cy0+Math.sin(a)*rr});
+    }
+    defaultPath=path;
+    userPath=path;
+    fourier=dft(userPath);
+    time=0;drawPath=[];
+  }
+
+  resize();window.addEventListener('resize',resize);
+
+  let numTerms=5,time=0,drawPath=[];
+  let drawing=false,drawnPts=[];
+
+  function dft(pts){
+    const N=pts.length,X=[];
+    for(let k=0;k<N;k++){
+      let re=0,im=0;
+      for(let n=0;n<N;n++){
+        const a=-2*Math.PI*k*n/N;
+        re+=pts[n].x*Math.cos(a)-pts[n].y*Math.sin(a);
+        im+=pts[n].x*Math.sin(a)+pts[n].y*Math.cos(a);
+      }
+      re/=N;im/=N;
+      X.push({re,im,freq:k,amp:Math.sqrt(re*re+im*im),phase:Math.atan2(im,re)});
+    }
+    return X.sort((a,b)=>b.amp-a.amp);
+  }
+
+  let fourier=dft(userPath||[]);
+
+  function epicycles(x,y,rot,f,n){
+    const N=Math.min(n,f.length);
+    for(let i=0;i<N;i++){
+      const px=x,py=y;
+      const freq=f[i].freq,r=f[i].amp,phase=f[i].phase;
+      x+=r*Math.cos(freq*time+phase+rot);
+      y+=r*Math.sin(freq*time+phase+rot);
+      cx.beginPath();cx.arc(px,py,r,0,Math.PI*2);
+      cx.strokeStyle=css('--text-tertiary');cx.globalAlpha=0.12;cx.lineWidth=0.5;cx.stroke();
+      cx.beginPath();cx.moveTo(px,py);cx.lineTo(x,y);
+      cx.strokeStyle=css('--text-secondary');cx.globalAlpha=0.25;cx.lineWidth=0.5;cx.stroke();
+      cx.globalAlpha=1;
+    }
+    return{x,y};
+  }
+
+  function render(){
+    if(!userPath||userPath.length<2){requestAnimationFrame(render);return;}
+    const bg=css('--graph-bg');cx.fillStyle=bg;cx.fillRect(0,0,W,H);
+
+    // Original path
+    cx.beginPath();cx.moveTo(userPath[0].x,userPath[0].y);
+    for(let i=1;i<userPath.length;i++)cx.lineTo(userPath[i].x,userPath[i].y);
+    cx.closePath();cx.strokeStyle=css('--text-tertiary');cx.globalAlpha=0.1;cx.lineWidth=1;cx.stroke();cx.globalAlpha=1;
+
+    const v=epicycles(W*0.35,H/2,0,fourier,numTerms);
+    drawPath.unshift({x:v.x,y:v.y});
+    if(drawPath.length>userPath.length+50)drawPath.pop();
+
+    // Reconstructed path with gradient fade
+    if(drawPath.length>1){
+      for(let i=1;i<drawPath.length;i++){
+        const alpha=1-(i/drawPath.length)*0.6;
+        cx.beginPath();cx.moveTo(drawPath[i-1].x,drawPath[i-1].y);cx.lineTo(drawPath[i].x,drawPath[i].y);
+        cx.strokeStyle=css('--accent');cx.lineWidth=1.8-i/drawPath.length;cx.globalAlpha=alpha;cx.stroke();
+      }
+      cx.globalAlpha=1;
+    }
+
+    // Glowing tip
+    cx.beginPath();cx.arc(v.x,v.y,4,0,Math.PI*2);cx.fillStyle=css('--accent');cx.globalAlpha=0.3;cx.fill();
+    cx.beginPath();cx.arc(v.x,v.y,2.5,0,Math.PI*2);cx.fillStyle=css('--accent');cx.globalAlpha=1;cx.fill();
+
+    time+=Math.PI*2/userPath.length;
+    if(time>Math.PI*2){time=0;drawPath=[];}
+    requestAnimationFrame(render);
+  }
+  render();
+
+  // Drawing
+  function startDraw(x,y){drawing=true;drawnPts=[{x,y}];drawPath=[];time=0;}
+  function moveDraw(x,y){if(!drawing)return;drawnPts.push({x,y});}
+  function endDraw(){
+    if(drawing&&drawnPts.length>10){userPath=drawnPts.slice();fourier=dft(userPath);time=0;drawPath=[];}
+    drawing=false;
+  }
+  cv.addEventListener('mousedown',e=>{const r=cv.getBoundingClientRect();startDraw(e.clientX-r.left,e.clientY-r.top);});
+  cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();moveDraw(e.clientX-r.left,e.clientY-r.top);});
+  cv.addEventListener('mouseup',endDraw);
+  cv.addEventListener('mouseleave',endDraw);
+  cv.addEventListener('touchstart',e=>{const r=cv.getBoundingClientRect(),t=e.touches[0];startDraw(t.clientX-r.left,t.clientY-r.top);e.preventDefault();},{passive:false});
+  cv.addEventListener('touchmove',e=>{const r=cv.getBoundingClientRect(),t=e.touches[0];moveDraw(t.clientX-r.left,t.clientY-r.top);e.preventDefault();},{passive:false});
+  cv.addEventListener('touchend',endDraw);
+
+  // Term buttons
+  document.querySelectorAll('[data-terms]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('[data-terms]').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');numTerms=parseInt(btn.dataset.terms);time=0;drawPath=[];
+    });
+  });
+})();
+
+// ════════════════════════════════════════
+// 2. LORENZ ATTRACTOR (perfected)
+// ════════════════════════════════════════
+(function(){
+  const cv=document.getElementById('lorenzCanvas'),cx=cv.getContext('2d');
+  const wrap=cv.parentElement;
+  let W,H,dpr;
+  function resize(){
+    dpr=devicePixelRatio||1;W=wrap.clientWidth;H=Math.min(400,W*0.6);
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';cx.setTransform(dpr,0,0,dpr,0,0);
+    cx.fillStyle=css('--graph-bg');cx.fillRect(0,0,W,H);
+  }
+  resize();window.addEventListener('resize',resize);
+
+  const sigma=10,rho=28,beta=8/3,dt=0.005;
+  let trails=[],paused=false;
+  const colors=['--accent','--node-research','--node-observatory'];
+
+  function initTrails(){
+    trails=[];
+    for(let i=0;i<3;i++){
+      trails.push({x:0.1+i*0.01,y:0,z:0,pts:[],color:colors[i]});
+    }
+  }
+  initTrails();
+
+  function project(x,y,z){
+    const sc=Math.min(W,H)/55;
+    return{px:W/2+x*sc,py:H*0.55-z*sc*0.6};
+  }
+
+  function step(t){
+    const dx=sigma*(t.y-t.x)*dt;
+    const dy=(t.x*(rho-t.z)-t.y)*dt;
+    const dz=(t.x*t.y-beta*t.z)*dt;
+    t.x+=dx;t.y+=dy;t.z+=dz;
+    t.pts.push(project(t.x,t.y,t.z));
+    if(t.pts.length>2000)t.pts.shift();
+  }
+
+  function render(){
+    // Subtle fade for trail effect
+    cx.fillStyle=css('--graph-bg');cx.globalAlpha=0.08;cx.fillRect(0,0,W,H);cx.globalAlpha=1;
+
+    if(!paused){
+      for(let s=0;s<6;s++) trails.forEach(t=>step(t));
+    }
+    trails.forEach(t=>{
+      if(t.pts.length<2)return;
+      for(let i=Math.max(1,t.pts.length-600);i<t.pts.length;i++){
+        const alpha=(i-Math.max(0,t.pts.length-600))/Math.min(600,t.pts.length);
+        cx.beginPath();cx.moveTo(t.pts[i-1].px,t.pts[i-1].py);cx.lineTo(t.pts[i].px,t.pts[i].py);
+        cx.strokeStyle=css(t.color);cx.globalAlpha=alpha*0.8;cx.lineWidth=0.6+alpha*0.8;cx.stroke();
+      }
+      cx.globalAlpha=1;
+      const last=t.pts[t.pts.length-1];
+      // Glow
+      cx.beginPath();cx.arc(last.px,last.py,5,0,Math.PI*2);cx.fillStyle=css(t.color);cx.globalAlpha=0.15;cx.fill();
+      cx.beginPath();cx.arc(last.px,last.py,2.5,0,Math.PI*2);cx.fillStyle=css(t.color);cx.globalAlpha=1;cx.fill();
+    });
+    requestAnimationFrame(render);
+  }
+  render();
+
+  document.getElementById('lorenzReset').addEventListener('click',()=>{
+    cx.globalAlpha=1;cx.fillStyle=css('--graph-bg');cx.fillRect(0,0,W,H);
+    initTrails();paused=false;
+    document.getElementById('lorenzPause').querySelector('[data-lang="es"]').textContent='pausar';
+    document.getElementById('lorenzPause').querySelector('[data-lang="en"]').textContent='pause';
+  });
+  document.getElementById('lorenzPause').addEventListener('click',()=>{
+    paused=!paused;
+    document.getElementById('lorenzPause').querySelector('[data-lang="es"]').textContent=paused?'reanudar':'pausar';
+    document.getElementById('lorenzPause').querySelector('[data-lang="en"]').textContent=paused?'resume':'pause';
+  });
+})();
+
+// ════════════════════════════════════════
+// 3. GAME OF LIFE (perfected)
+// ════════════════════════════════════════
+(function(){
+  const cv=document.getElementById('lifeCanvas'),cx=cv.getContext('2d');
+  const wrap=cv.parentElement;
+  const cellSize=8;
+  let cols,rows,grid,running=false,gen=0,interval=null;
+  let W,H,dpr;
+
+  function resize(){
+    dpr=devicePixelRatio||1;W=wrap.clientWidth;
+    cols=Math.floor(W/cellSize);rows=Math.floor(Math.min(380,W*0.55)/cellSize);
+    H=rows*cellSize;cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
+    cx.setTransform(dpr,0,0,dpr,0,0);initGrid();draw();
+  }
+
+  function initGrid(){grid=Array.from({length:rows},()=>Array(cols).fill(0));gen=0;updateGen();}
+  function updateGen(){document.getElementById('lifeGen').textContent='gen '+gen;}
+  function set(r,c,v){if(r>=0&&r<rows&&c>=0&&c<cols)grid[r][c]=v;}
+
+  function countNeighbors(r,c){
+    let s=0;
+    for(let dr=-1;dr<=1;dr++)for(let dc=-1;dc<=1;dc++){
+      if(!dr&&!dc)continue;
+      s+=grid[(r+dr+rows)%rows][(c+dc+cols)%cols];
+    }
+    return s;
+  }
+
+  function step(){
+    const next=grid.map(r=>[...r]);
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+      const n=countNeighbors(r,c);
+      next[r][c]=grid[r][c]?(n===2||n===3?1:0):(n===3?1:0);
+    }
+    grid=next;gen++;updateGen();
+  }
+
+  function draw(){
+    const bg=css('--graph-bg'),alive=css('--accent'),line=css('--border');
+    cx.fillStyle=bg;cx.fillRect(0,0,W,H);
+    // Subtle grid
+    cx.strokeStyle=line;cx.lineWidth=0.3;cx.globalAlpha=0.2;
+    for(let c=0;c<=cols;c++){cx.beginPath();cx.moveTo(c*cellSize,0);cx.lineTo(c*cellSize,H);cx.stroke();}
+    for(let r=0;r<=rows;r++){cx.beginPath();cx.moveTo(0,r*cellSize);cx.lineTo(W,r*cellSize);cx.stroke();}
+    cx.globalAlpha=1;
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+      if(grid[r][c]){
+        cx.fillStyle=alive;cx.globalAlpha=0.85;
+        cx.beginPath();
+        cx.roundRect(c*cellSize+0.5,r*cellSize+0.5,cellSize-1,cellSize-1,1.5);
+        cx.fill();
+        cx.globalAlpha=1;
+      }
+    }
+  }
+
+  resize();window.addEventListener('resize',resize);
+
+  // Interaction
+  function toggleCell(ex,ey,force){
+    const r=cv.getBoundingClientRect();
+    const c=Math.floor((ex-r.left)/cellSize),row=Math.floor((ey-r.top)/cellSize);
+    if(row>=0&&row<rows&&c>=0&&c<cols){grid[row][c]=force!==undefined?force:(1-grid[row][c]);draw();}
+  }
+  cv.addEventListener('mousedown',e=>{toggleCell(e.clientX,e.clientY);cv._painting=true;});
+  cv.addEventListener('mousemove',e=>{if(cv._painting)toggleCell(e.clientX,e.clientY,1);});
+  cv.addEventListener('mouseup',()=>cv._painting=false);
+  cv.addEventListener('mouseleave',()=>cv._painting=false);
+  cv.addEventListener('touchstart',e=>{const t=e.touches[0];toggleCell(t.clientX,t.clientY,1);e.preventDefault();},{passive:false});
+  cv.addEventListener('touchmove',e=>{const t=e.touches[0];toggleCell(t.clientX,t.clientY,1);e.preventDefault();},{passive:false});
+
+  document.getElementById('lifePlay').addEventListener('click',()=>{
+    running=!running;
+    document.getElementById('lifePlay').querySelector('[data-lang="es"]').textContent=running?'pausar':'iniciar';
+    document.getElementById('lifePlay').querySelector('[data-lang="en"]').textContent=running?'pause':'play';
+    if(running){interval=setInterval(()=>{step();draw();},80);}else{clearInterval(interval);}
+  });
+  document.getElementById('lifeClear').addEventListener('click',()=>{
+    running=false;clearInterval(interval);initGrid();draw();
+    document.getElementById('lifePlay').querySelector('[data-lang="es"]').textContent='iniciar';
+    document.getElementById('lifePlay').querySelector('[data-lang="en"]').textContent='play';
+  });
+  document.getElementById('lifeRandom').addEventListener('click',()=>{
+    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)grid[r][c]=Math.random()>0.7?1:0;
+    gen=0;updateGen();draw();
+  });
+  document.getElementById('lifeGlider').addEventListener('click',()=>{
+    initGrid();
+    const mr=Math.floor(rows/2)-1,mc=Math.floor(cols/2)-1;
+    [[0,1],[1,2],[2,0],[2,1],[2,2]].forEach(([dr,dc])=>set(mr+dr,mc+dc,1));
+    [[5,1],[5,2],[6,1],[6,2],[5,11],[6,11],[7,11],[4,12],[8,12],[3,13],[9,13],[3,14],[9,14],
+     [6,15],[4,16],[8,16],[5,17],[6,17],[7,17],[6,18],[3,21],[4,21],[5,21],[3,22],[4,22],[5,22],
+     [2,23],[6,23],[1,25],[2,25],[6,25],[7,25],[3,35],[4,35],[3,36],[4,36]
+    ].forEach(([r,c])=>set(r+2,c+2,1));
+    draw();
+  });
+})();
+
+// ════════════════════════════════════════
+// 4. TEMPUS FUGIT — LIFE IN WEEKS
+// ════════════════════════════════════════
+(function(){
+  const cv=document.getElementById('tempusCanvas'),cx=cv.getContext('2d');
+  const wrap=cv.parentElement;
+  let W,H,dpr;
+
+  const BIRTH=new Date(1999,5,23); // June 23, 1999
+  let lifeExpectancy=73;
+
+  function weeksLived(){
+    const now=new Date();
+    const ms=now-BIRTH;
+    return Math.floor(ms/(7*24*60*60*1000));
+  }
+
+  function resize(){
+    dpr=devicePixelRatio||1;W=wrap.clientWidth;
+    // Calculate height based on grid
+    const totalWeeks=lifeExpectancy*52;
+    const cols=52;
+    const rows=Math.ceil(totalWeeks/cols);
+    const dotSpacing=Math.max(3,Math.min(W/(cols+2),8));
+    H=Math.min(600,(rows+4)*dotSpacing);
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
+    cx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function render(){
+    resize();
+    const bg=css('--graph-bg');cx.fillStyle=bg;cx.fillRect(0,0,W,H);
+
+    const lived=weeksLived();
+    const totalWeeks=lifeExpectancy*52;
+    const cols=52;
+    const rows=Math.ceil(totalWeeks/cols);
+
+    const dotR=Math.max(1.2,Math.min((W-40)/(cols*2.8),3));
+    const spacing=dotR*2.8;
+    const offsetX=(W-cols*spacing)/2;
+    const offsetY=(H-rows*spacing)/2;
+
+    const accentColor=css('--accent');
+    const dimColor=css('--text-tertiary');
+    const textColor=css('--text-secondary');
+
+    // Year labels every 10 years
+    cx.font=`${Math.max(7,dotR*2.5)}px "IBM Plex Mono"`;
+    cx.fillStyle=textColor;cx.globalAlpha=0.4;cx.textAlign='right';
+    for(let y=0;y<=lifeExpectancy;y+=10){
+      const row=y*52/cols;
+      if(row*spacing+offsetY>H)break;
+      cx.fillText(y+'',offsetX-dotR*2,row*spacing+offsetY+dotR);
+    }
+    cx.globalAlpha=1;
+
+    // Draw weeks
+    for(let i=0;i<totalWeeks;i++){
+      const col=i%cols,row=Math.floor(i/cols);
+      const x=offsetX+col*spacing;
+      const y=offsetY+row*spacing;
+      if(y>H||x>W)continue;
+
+      cx.beginPath();cx.arc(x,y,dotR,0,Math.PI*2);
+
+      if(i<lived){
+        // Lived weeks — filled with accent, slight age gradient
+        const age=i/totalWeeks;
+        cx.fillStyle=accentColor;
+        cx.globalAlpha=0.35+age*0.55;
+        cx.fill();
+      } else if(i===lived){
+        // Current week — pulsing
+        const pulse=0.5+0.5*Math.sin(Date.now()/300);
+        cx.fillStyle=accentColor;cx.globalAlpha=0.7+pulse*0.3;cx.fill();
+        // Outer glow
+        cx.beginPath();cx.arc(x,y,dotR*2.5,0,Math.PI*2);
+        cx.fillStyle=accentColor;cx.globalAlpha=0.08+pulse*0.07;cx.fill();
+      } else {
+        // Future weeks — empty circles
+        cx.strokeStyle=dimColor;cx.globalAlpha=0.15;cx.lineWidth=0.5;cx.stroke();
+      }
+      cx.globalAlpha=1;
+    }
+
+    // Stats
+    const remaining=Math.max(0,totalWeeks-lived);
+    const pct=((lived/totalWeeks)*100).toFixed(1);
+    document.getElementById('statLived').textContent=lived.toLocaleString();
+    document.getElementById('statRemain').textContent=remaining.toLocaleString();
+    document.getElementById('statPct').textContent=pct+'%';
+  }
+
+  render();
+
+  // Animate current-week pulse
+  let animFrame;
+  function animate(){render();animFrame=requestAnimationFrame(animate);}
+  // Use IntersectionObserver to only animate when visible
+  const obs=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){animate();}else{cancelAnimationFrame(animFrame);}
+  },{threshold:0.1});
+  obs.observe(cv);
+
+  // Expectancy buttons
+  document.querySelectorAll('[data-expectancy]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('[data-expectancy]').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      lifeExpectancy=parseInt(btn.dataset.expectancy);
+      render();
+    });
+  });
+})();
+
+// ════════════════════════════════════════
+// 5. ENTROPY — TEXT DECAY
+// ════════════════════════════════════════
+(function(){
+  const cv=document.getElementById('entropyCanvas'),cx=cv.getContext('2d');
+  const wrap=cv.parentElement;
+  let W,H,dpr;
+  const TEXT='MEMENTO MORI';
+  let particles=[],paused=false;
+
+  function resize(){
+    dpr=devicePixelRatio||1;W=wrap.clientWidth;H=Math.min(350,W*0.5);
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';cx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function buildParticles(){
+    particles=[];
+    // Render text to offscreen canvas to get pixel positions
+    const off=document.createElement('canvas');
+    off.width=W;off.height=H;
+    const octx=off.getContext('2d');
+    const fontSize=Math.min(W/7,H/1.8);
+    octx.font=`600 ${fontSize}px "Cormorant Garamond"`;
+    octx.fillStyle='#000';
+    octx.textAlign='center';octx.textBaseline='middle';
+    octx.fillText(TEXT,W/2,H/2);
+
+    const imgData=octx.getImageData(0,0,W,H);
+    const step=Math.max(2,Math.floor(Math.min(W,H)/150));
+
+    for(let y=0;y<H;y+=step){
+      for(let x=0;x<W;x+=step){
+        const idx=(y*W+x)*4;
+        if(imgData.data[idx+3]>128){
+          particles.push({
+            ox:x,oy:y, // original position
+            x:x,y:y,   // current position
+            vx:0,vy:0,
+            fallen:false,
+            delay:Math.random()*800+Math.random()*Math.random()*2000, // when to start falling
+            size:step*0.45+Math.random()*step*0.2
+          });
+        }
+      }
+    }
+    // Shuffle fall order for organic feel
+    particles.sort(()=>Math.random()-0.5);
+    // Assign delays based on position — bottom falls first
+    particles.forEach((p,i)=>{
+      p.delay=300+(H-p.oy)/H*1500+Math.random()*2000;
+    });
+    startTime=performance.now();
+  }
+
+  resize();window.addEventListener('resize',()=>{resize();buildParticles();});
+  let startTime=0;
+  buildParticles();
+
+  function render(){
+    cx.fillStyle=css('--graph-bg');cx.fillRect(0,0,W,H);
+    const now=performance.now();
+    const elapsed=now-startTime;
+    const accent=css('--accent');
+    const textCol=css('--text');
+    let fallenCount=0;
+
+    particles.forEach(p=>{
+      if(!paused&&elapsed>p.delay&&!p.fallen){
+        // Apply gravity
+        p.vy+=0.06+Math.random()*0.02;
+        p.vx+=(Math.random()-0.5)*0.3;
+        p.x+=p.vx;
+        p.y+=p.vy;
+
+        // Settle at bottom
+        if(p.y>=H-p.size){
+          p.y=H-p.size-Math.random()*3;
+          p.vy=0;p.vx=0;
+          p.fallen=true;
+        }
+      }
+
+      if(p.fallen)fallenCount++;
+
+      const progress=Math.min(1,(p.y-p.oy)/(H-p.oy));
+      const alpha=p.fallen?0.3:0.5+0.5*(1-progress);
+
+      cx.beginPath();cx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      cx.fillStyle=p.fallen?accent:textCol;
+      cx.globalAlpha=alpha;cx.fill();cx.globalAlpha=1;
+    });
+
+    // Entropy label
+    const entropyPct=particles.length>0?Math.round((fallenCount/particles.length)*100):0;
+    document.getElementById('entropyLabel').textContent='entropy: '+entropyPct+'%';
+
+    requestAnimationFrame(render);
+  }
+  render();
+
+  document.getElementById('entropyReset').addEventListener('click',()=>{
+    buildParticles();paused=false;
+    document.getElementById('entropyPause').querySelector('[data-lang="es"]').textContent='pausar';
+    document.getElementById('entropyPause').querySelector('[data-lang="en"]').textContent='pause';
+  });
+  document.getElementById('entropyPause').addEventListener('click',()=>{
+    paused=!paused;
+    document.getElementById('entropyPause').querySelector('[data-lang="es"]').textContent=paused?'reanudar':'pausar';
+    document.getElementById('entropyPause').querySelector('[data-lang="en"]').textContent=paused?'resume':'pause';
+  });
+})();
+
+// ════════════════════════════════════════
+// 6. VANITAS — PARTICLE SKULL
+// ════════════════════════════════════════
+(function(){
+  const cv=document.getElementById('vanitasCanvas'),cx=cv.getContext('2d');
+  const wrap=cv.parentElement;
+  let W,H,dpr;
+  let particles=[],scattered=false;
+  let mouseX=-999,mouseY=-999;
+
+  function resize(){
+    dpr=devicePixelRatio||1;W=wrap.clientWidth;H=Math.min(420,W*0.65);
+    cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';cx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  // Draw skull shape using simple geometry
+  function skullPoints(){
+    const pts=[];
+    const cxc=W/2,cyc=H*0.42;
+    const headR=Math.min(W,H)*0.22;
+
+    // Cranium — oval
+    for(let a=0;a<Math.PI*2;a+=0.04){
+      const rx=headR,ry=headR*1.1;
+      pts.push({x:cxc+Math.cos(a)*rx,y:cyc+Math.sin(a)*ry*0.9});
+    }
+    // Jaw
+    const jawY=cyc+headR*0.7;
+    const jawW=headR*0.65;
+    for(let i=-1;i<=1;i+=0.05){
+      pts.push({x:cxc+i*jawW,y:jawY+Math.abs(i)*headR*0.3+headR*0.3});
+    }
+    // Left eye socket
+    for(let a=0;a<Math.PI*2;a+=0.1){
+      const er=headR*0.18;
+      pts.push({x:cxc-headR*0.32+Math.cos(a)*er,y:cyc-headR*0.05+Math.sin(a)*er});
+    }
+    // Right eye socket
+    for(let a=0;a<Math.PI*2;a+=0.1){
+      const er=headR*0.18;
+      pts.push({x:cxc+headR*0.32+Math.cos(a)*er,y:cyc-headR*0.05+Math.sin(a)*er});
+    }
+    // Nose — inverted triangle
+    const ny=cyc+headR*0.25;
+    pts.push({x:cxc,y:ny},{x:cxc-headR*0.08,y:ny+headR*0.15},{x:cxc+headR*0.08,y:ny+headR*0.15});
+    // Teeth line
+    for(let i=-3;i<=3;i++){
+      pts.push({x:cxc+i*headR*0.09,y:jawY+headR*0.15});
+      pts.push({x:cxc+i*headR*0.09,y:jawY+headR*0.25});
+    }
+    // Fill cranium interior with more points
+    for(let i=0;i<400;i++){
+      const a=Math.random()*Math.PI*2;
+      const r=Math.random();
+      const rx=headR*0.9*r,ry=headR*1.0*r;
+      const px=cxc+Math.cos(a)*rx,py=cyc+Math.sin(a)*ry*0.85;
+      // Skip eye and nose holes
+      const inLeftEye=Math.hypot(px-(cxc-headR*0.32),py-(cyc-headR*0.05))<headR*0.15;
+      const inRightEye=Math.hypot(px-(cxc+headR*0.32),py-(cyc-headR*0.05))<headR*0.15;
+      const inNose=py>cyc+headR*0.2&&py<cyc+headR*0.4&&Math.abs(px-cxc)<headR*0.07;
+      if(!inLeftEye&&!inRightEye&&!inNose){
+        pts.push({x:px,y:py});
+      }
+    }
+    return pts;
+  }
+
+  function buildParticles(){
+    const pts=skullPoints();
+    particles=pts.map(p=>({
+      tx:p.x,ty:p.y, // target
+      x:p.x,y:p.y,   // current
+      vx:0,vy:0,
+      size:1+Math.random()*1.5
+    }));
+  }
+
+  resize();window.addEventListener('resize',()=>{resize();buildParticles();});
+  buildParticles();
+
+  function render(){
+    cx.fillStyle=css('--graph-bg');cx.fillRect(0,0,W,H);
+    const accent=css('--accent');
+    const textCol=css('--text');
+
+    particles.forEach(p=>{
+      // Spring towards target
+      const dx=p.tx-p.x,dy=p.ty-p.y;
+      const spring=scattered?0.003:0.04;
+      const damping=0.92;
+      p.vx+=dx*spring;p.vy+=dy*spring;
+
+      // Mouse repulsion
+      const mx=p.x-mouseX,my=p.y-mouseY;
+      const md=mx*mx+my*my;
+      if(md<5000){
+        const force=Math.min(8,300/Math.max(md,1));
+        p.vx+=mx*force*0.01;p.vy+=my*force*0.01;
+      }
+
+      p.vx*=damping;p.vy*=damping;
+      p.x+=p.vx;p.y+=p.vy;
+
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      const alpha=scattered?Math.max(0.1,1-dist/400):Math.max(0.3,1-dist/100);
+
+      cx.beginPath();cx.arc(p.x,p.y,p.size,0,Math.PI*2);
+      cx.fillStyle=dist>30?accent:textCol;
+      cx.globalAlpha=alpha;cx.fill();
+    });
+    cx.globalAlpha=1;
+    requestAnimationFrame(render);
+  }
+  render();
+
+  // Mouse interaction
+  cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouseX=e.clientX-r.left;mouseY=e.clientY-r.top;});
+  cv.addEventListener('mouseleave',()=>{mouseX=-999;mouseY=-999;});
+  cv.addEventListener('touchmove',e=>{const r=cv.getBoundingClientRect(),t=e.touches[0];mouseX=t.clientX-r.left;mouseY=t.clientY-r.top;e.preventDefault();},{passive:false});
+  cv.addEventListener('touchend',()=>{mouseX=-999;mouseY=-999;});
+
+  document.getElementById('vanitasScatter').addEventListener('click',()=>{
+    scattered=true;
+    particles.forEach(p=>{
+      p.tx=Math.random()*W;p.ty=Math.random()*H;
+      p.vx+=(Math.random()-0.5)*8;p.vy+=(Math.random()-0.5)*8;
+    });
+  });
+  document.getElementById('vanitasReform').addEventListener('click',()=>{
+    scattered=false;
+    const pts=skullPoints();
+    particles.forEach((p,i)=>{
+      if(i<pts.length){p.tx=pts[i].x;p.ty=pts[i].y;}
+      else{p.tx=W/2+(Math.random()-0.5)*20;p.ty=H/2+(Math.random()-0.5)*20;}
+    });
+  });
+})();
+</script>
+</body>
+</html>

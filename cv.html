@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Cristian Espinal Maya</title>
+  <meta name="description" content="Curriculum vitae of Cristian Espinal Maya — Economist, Software Engineer & Remote Sensing Researcher based in Medellín, Colombia.">
+  <meta property="og:title" content="CV — Cristian Espinal Maya">
+  <meta property="og:description" content="Experience, education, technical skills, and research background of Cristian Espinal Maya.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cespial.github.io/cv">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .skills-group { margin-bottom: 1.2rem; }
+    .skills-label {
+      font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary);
+      margin-bottom: 0.5rem;
+    }
+    .skills-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-tag {
+      font-family: var(--mono); font-size: 0.65rem; font-weight: 400;
+      color: var(--text-secondary); background: var(--bg-subtle);
+      border: 1px solid var(--border); border-radius: 3px;
+      padding: 0.2rem 0.5rem; letter-spacing: 0.02em;
+      transition: color 0.3s, background 0.3s, border-color 0.3s;
+    }
+    .skill-tag:hover { color: var(--text); border-color: var(--text-tertiary); }
+    .research-item { padding: 0.7rem 0; }
+    .research-group {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 600;
+    }
+    .research-topics {
+      font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.2rem; line-height: 1.6;
+    }
+    .research-note {
+      font-family: var(--mono); font-size: 0.65rem; color: var(--text-tertiary);
+      margin-top: 0.15rem; letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════ NAV ════ -->
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">index</a>
+      <a href="writing.html"><span data-lang="es">escritos</span><span data-lang="en">writing</span></a>
+      <a href="notes.html"><span data-lang="es">notas</span><span data-lang="en">notes</span></a>
+      <a href="simulations.html"><span data-lang="es">simulaciones</span><span data-lang="en">simulations</span></a>
+      <a href="art.html"><span data-lang="es">arte</span><span data-lang="en">art</span></a>
+      <a href="reading.html"><span data-lang="es">lecturas</span><span data-lang="en">reading</span></a>
+      <a href="cv.html" class="active">cv</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none">
+          <path d="M21.75 15.5A9.72 9.72 0 018.5 2.25 9.75 9.75 0 1021.75 15.5z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════ PAGE HEADER ════ -->
+  <section class="page-header fade-in">
+    <h1>
+      <span data-lang="es">Curr&iacute;culum Vitae</span>
+      <span data-lang="en">Curriculum Vitae</span>
+    </h1>
+    <p class="page-subtitle">
+      <span data-lang="es">Experiencia profesional, formaci&oacute;n acad&eacute;mica, habilidades t&eacute;cnicas e investigaci&oacute;n.</span>
+      <span data-lang="en">Professional experience, education, technical skills, and research.</span>
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ════ EXPERIENCE ════ -->
+  <section class="index-section">
+    <div class="section-label fade-in">
+      <span data-lang="es">Experiencia</span>
+      <span data-lang="en">Experience</span>
+    </div>
+
+    <ul class="timeline stagger">
+
+      <!-- PRGX LATAM -->
+      <li class="timeline-item current fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">L&iacute;der de IA & Automatizaci&oacute;n</span>
+          <span data-lang="en">AI & Automation Lead</span>
+        </div>
+        <div class="timeline-org">PRGX LATAM</div>
+        <div class="timeline-date">
+          <span data-lang="es">Feb 2026 &ndash; Presente</span>
+          <span data-lang="en">Feb 2026 &ndash; Present</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">Liderando IA y automatizaci&oacute;n de procesos para auditor&iacute;a de recuperaci&oacute;n.</span>
+          <span data-lang="en">Leading AI and process automation for recovery audit.</span>
+        </p>
+      </li>
+
+      <!-- Camara de Comercio -->
+      <li class="timeline-item fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">Arquitecto de Servicios & L&iacute;der de Estrategia</span>
+          <span data-lang="en">Service Architect & Strategy Lead</span>
+        </div>
+        <div class="timeline-org">C&aacute;mara de Comercio de Medell&iacute;n</div>
+        <div class="timeline-date">
+          <span data-lang="es">May 2025 &ndash; Feb 2026</span>
+          <span data-lang="en">May 2025 &ndash; Feb 2026</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">1.400+ actividades, presupuesto de $34B COP, 30.000+ empresas.</span>
+          <span data-lang="en">1,400+ activities, $34B COP budget, 30,000+ companies.</span>
+        </p>
+      </li>
+
+      <!-- ESUMER -->
+      <li class="timeline-item current fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">Docente de Posgrado & L&iacute;der de IA</span>
+          <span data-lang="en">Postgraduate Lecturer & AI Lead</span>
+        </div>
+        <div class="timeline-org">ESUMER</div>
+        <div class="timeline-date">
+          <span data-lang="es">Ene 2025 &ndash; Presente</span>
+          <span data-lang="en">Jan 2025 &ndash; Present</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">IA para Organizaciones, BI, An&aacute;lisis de Datos en Maestr&iacute;a en Finanzas.</span>
+          <span data-lang="en">AI for Organizations, BI, Data Analysis in Master's Finance.</span>
+        </p>
+      </li>
+
+      <!-- Politecnico JIC -->
+      <li class="timeline-item current fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">Asesor Financiero</span>
+          <span data-lang="en">Financial Advisor</span>
+        </div>
+        <div class="timeline-org">Polit&eacute;cnico Jaime Isaza Cadavid</div>
+        <div class="timeline-date">
+          <span data-lang="es">Ago 2023 &ndash; Presente</span>
+          <span data-lang="en">Aug 2023 &ndash; Present</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">Automatizaci&oacute;n de auditor&iacute;a y modelaci&oacute;n financiera.</span>
+          <span data-lang="en">Audit automation and financial modeling.</span>
+        </p>
+      </li>
+
+      <!-- CIIID -->
+      <li class="timeline-item current fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">Investigador Asociado Sociedad 5.0</span>
+          <span data-lang="en">Research Associate Society 5.0</span>
+        </div>
+        <div class="timeline-org">CIIID</div>
+        <div class="timeline-date">
+          <span data-lang="es">Ene 2022 &ndash; Presente</span>
+          <span data-lang="en">Jan 2022 &ndash; Present</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">Grupo Minciencias. Industria 4.0, Transformaci&oacute;n Digital.</span>
+          <span data-lang="en">Minciencias group. Industry 4.0, Digital Transformation.</span>
+        </p>
+      </li>
+
+      <!-- Alcaldia de Medellin -->
+      <li class="timeline-item fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">L&iacute;der del Programa de IA</span>
+          <span data-lang="en">AI Program Lead</span>
+        </div>
+        <div class="timeline-org">Alcald&iacute;a de Medell&iacute;n</div>
+        <div class="timeline-date">
+          <span data-lang="es">Oct &ndash; Dic 2024</span>
+          <span data-lang="en">Oct &ndash; Dec 2024</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">Estud-IA para 400 estudiantes.</span>
+          <span data-lang="en">Estud-IA for 400 students.</span>
+        </p>
+      </li>
+
+      <!-- Pascual Bravo -->
+      <li class="timeline-item fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">Analista de Datos & Prospectiva</span>
+          <span data-lang="en">Data & Foresight Analyst</span>
+        </div>
+        <div class="timeline-org">Pascual Bravo</div>
+        <div class="timeline-date">
+          <span data-lang="es">Oct 2023 &ndash; Dic 2024</span>
+          <span data-lang="en">Oct 2023 &ndash; Dec 2024</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">Dashboards de inteligencia competitiva.</span>
+          <span data-lang="en">Competitive intelligence dashboards.</span>
+        </p>
+      </li>
+
+      <!-- Infinivirt -->
+      <li class="timeline-item fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">Gerente Financiero</span>
+          <span data-lang="en">Financial Manager</span>
+        </div>
+        <div class="timeline-org">Infinivirt Technologies</div>
+        <div class="timeline-date">
+          <span data-lang="es">Jun 2021 &ndash; Ene 2022</span>
+          <span data-lang="en">Jun 2021 &ndash; Jan 2022</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">Ciclo de ingresos, BI, gesti&oacute;n de proveedores.</span>
+          <span data-lang="en">Revenue cycle, BI, vendor management.</span>
+        </p>
+      </li>
+
+      <!-- Contraloria -->
+      <li class="timeline-item fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">Consultor Estrat&eacute;gico</span>
+          <span data-lang="en">Strategic Consultant</span>
+        </div>
+        <div class="timeline-org">Contralor&iacute;a General de la Rep&uacute;blica</div>
+        <div class="timeline-date">
+          <span data-lang="es">Oct &ndash; Dic 2022</span>
+          <span data-lang="en">Oct &ndash; Dec 2022</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">Plan Estrat&eacute;gico 2022&ndash;2026.</span>
+          <span data-lang="en">Strategic Plan 2022&ndash;2026.</span>
+        </p>
+      </li>
+
+      <!-- UPB -->
+      <li class="timeline-item fade-in">
+        <div class="timeline-role">
+          <span data-lang="es">Analista de Proyectos</span>
+          <span data-lang="en">Project Analyst</span>
+        </div>
+        <div class="timeline-org">Universidad Pontificia Bolivariana</div>
+        <div class="timeline-date">
+          <span data-lang="es">Sep &ndash; Dic 2021</span>
+          <span data-lang="en">Sep &ndash; Dec 2021</span>
+        </div>
+        <p class="timeline-desc">
+          <span data-lang="es">Modelo de negocio para autopista estatal de fibra &oacute;ptica.</span>
+          <span data-lang="en">Business model for state-owned fiber optic highway.</span>
+        </p>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ════ EDUCATION ════ -->
+  <section class="index-section">
+    <div class="section-label fade-in">
+      <span data-lang="es">Educaci&oacute;n</span>
+      <span data-lang="en">Education</span>
+    </div>
+
+    <div class="stagger">
+
+      <div class="edu-item fade-in">
+        <div class="edu-degree"><span data-lang="es">Doctorado en Ingenier&iacute;a (en curso)</span><span data-lang="en">PhD in Engineering (in progress)</span></div>
+        <div class="edu-school">Universidad Nacional de Colombia, Medell&iacute;n</div>
+        <div class="edu-date">2026 &ndash;</div>
+      </div>
+
+      <div class="edu-item fade-in">
+        <div class="edu-degree">
+          <span data-lang="es">Mag&iacute;ster en Econom&iacute;a</span>
+          <span data-lang="en">M.A. in Economics</span>
+        </div>
+        <div class="edu-school">Universidad EAFIT</div>
+        <div class="edu-date">
+          <span data-lang="es">Sep 2023 &ndash; Dic 2024</span>
+          <span data-lang="en">Sep 2023 &ndash; Dec 2024</span>
+        </div>
+      </div>
+
+      <div class="edu-item fade-in">
+        <div class="edu-degree">
+          <span data-lang="es">Economista</span>
+          <span data-lang="en">B.A. in Economics</span>
+        </div>
+        <div class="edu-school">Universidad de Medell&iacute;n</div>
+        <div class="edu-date">
+          <span data-lang="es">Ene 2018 &ndash; Sep 2022</span>
+          <span data-lang="en">Jan 2018 &ndash; Sep 2022</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════ SKILLS ════ -->
+  <section class="index-section">
+    <div class="section-label fade-in">
+      <span data-lang="es">Habilidades</span>
+      <span data-lang="en">Skills</span>
+    </div>
+
+    <div class="stagger">
+
+      <div class="skills-group fade-in">
+        <div class="skills-label">Technical</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">PostGIS</span>
+          <span class="skill-tag">Google Earth Engine</span>
+        </div>
+      </div>
+
+      <div class="skills-group fade-in">
+        <div class="skills-label">AI / ML</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Claude API</span>
+          <span class="skill-tag">Pinecone</span>
+          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">Whisper</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">Ensemble ML</span>
+        </div>
+      </div>
+
+      <div class="skills-group fade-in">
+        <div class="skills-label">Data</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">D3.js</span>
+          <span class="skill-tag">Recharts</span>
+          <span class="skill-tag">Deck.gl</span>
+          <span class="skill-tag">pandas</span>
+        </div>
+      </div>
+
+      <div class="skills-group fade-in">
+        <div class="skills-label">Methods</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Process Mining</span>
+          <span class="skill-tag">Financial Auditing</span>
+          <span class="skill-tag">Agile</span>
+          <span class="skill-tag">ROI Analysis</span>
+          <span class="skill-tag">MCDA</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════ RESEARCH ════ -->
+  <section class="index-section">
+    <div class="section-label fade-in">
+      <span data-lang="es">Investigaci&oacute;n</span>
+      <span data-lang="en">Research</span>
+    </div>
+
+    <div class="stagger">
+      <div class="research-item fade-in">
+        <div class="research-group">CIIID &mdash; Centro Interuniversitario de Innovaci&oacute;n, Investigaci&oacute;n y Desarrollo</div>
+        <p class="research-topics">
+          <span data-lang="es">L&iacute;neas de investigaci&oacute;n: Sociedad 5.0, Gesti&oacute;n P&uacute;blica, Gesti&oacute;n de Nuevos Negocios, Econom&iacute;a Social y Solidaria, Industria 4.0, Transformaci&oacute;n Digital, Supervisi&oacute;n Inteligente</span>
+          <span data-lang="en">Research lines: Society 5.0, Public Management, New Business Management, Social & Solidarity Economy, Industry 4.0, Digital Transformation, Smart Supervision</span>
+        </p>
+        <p class="research-note">
+          <span data-lang="es">Reconocido por Minciencias &middot; Certificado Oct 2024 &middot; <a href="https://scienti.minciencias.gov.co/gruplac/jsp/visualiza/visualizagr.jsp?nro=00000000024473" target="_blank" rel="noopener">GrupLAC</a></span>
+          <span data-lang="en">Minciencias-recognized &middot; Certified Oct 2024 &middot; <a href="https://scienti.minciencias.gov.co/gruplac/jsp/visualiza/visualizagr.jsp?nro=00000000024473" target="_blank" rel="noopener">GrupLAC</a></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer class="fade-in">
+    <span class="footer-copy">&copy; 2026 Cristian Espinal Maya</span>
+    <div class="social-links">
+      <a href="https://github.com/Cespial" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+      <a href="https://x.com/cespial" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://linkedin.com/in/cespial" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://public.tableau.com/app/profile/cristian.espinal.maya" target="_blank" rel="noopener" aria-label="Tableau"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.654 0v2.311h-1.15V0h1.15zm4.828 1.394v3.118h-1.15V1.394h1.15zm-9.68 0v3.118H5.651V1.394h1.15zM12 3.31h3.456v1.15H12V3.31zm-7.345 0h3.456v1.15H4.655V3.31zm14.69 0h3.456v1.15h-3.456V3.31zM11.654 4.46v3.456H10.5V4.46h1.15zM6.827 5.61v3.118H5.677V5.61h1.15zm9.656 0v3.118h-1.15V5.61h1.15zM12 7.916h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM1.154 9.066v3.118H0V9.066h1.154zm21.692 0V12.184h-1.154V9.066h1.154zM12 9.066h7.345v1.154H12V9.066zm-7.345 0H12v1.154H4.655V9.066zm7 1.154v3.456h-1.15v-3.456h1.15zm-4.828 1.15v3.118H5.677v-3.118h1.15zm9.656 0v3.118h-1.15v-3.118h1.15zM12 12.52h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM11.654 13.672v3.456H10.5v-3.456h1.15zm-4.827 1.15v3.118H5.677v-3.118h1.15zm9.656 0v3.118h-1.15v-3.118h1.15zM12 16.128h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM11.654 17.978v3.456H10.5v-3.456h1.15zm-4.827 1.15v3.118H5.677V19.128h1.15zm9.656 0v3.118h-1.15V19.128h1.15zM11.654 21.69V24H10.5v-2.311h1.15z"/></svg></a>
+      <a href="mailto:cristian@fourier.dev" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></a>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ════ SHARED JS ════ -->
+<script>
+const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
+function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
+const sL=localStorage.getItem('lang');if(sL)setLang(sL);
+langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
+const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
+function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
+const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
+themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

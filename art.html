@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art — Cristian Espinal Maya</title>
+  <meta name="description" content="Design gallery — selected projects by Cristian Espinal Maya. Web platforms, dashboards, and brand identities.">
+  <meta property="og:title" content="Art — Cristian Espinal Maya">
+  <meta property="og:description" content="Design gallery showcasing web platforms, data dashboards, brand identities, and UI systems built with Next.js, D3, Deck.gl, and Framer Motion.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cespial.github.io/art">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Unique visual backgrounds for each art card */
+    .visual-vortice {
+      background:
+        radial-gradient(ellipse at 30% 50%, #B8860B22 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, #DAA52018 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0d0d0d 100%);
+    }
+    [data-theme="dark"] .visual-vortice {
+      background:
+        radial-gradient(ellipse at 30% 50%, #B8860B33 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, #DAA52028 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000 100%);
+    }
+
+    .visual-tupagina {
+      background:
+        radial-gradient(circle, var(--text-tertiary) 1px, transparent 1px),
+        var(--bg-subtle);
+      background-size: 16px 16px;
+    }
+
+    .visual-observatorio {
+      background:
+        linear-gradient(0deg, transparent 49.5%, #4A6FA520 49.5%, #4A6FA520 50.5%, transparent 50.5%),
+        linear-gradient(90deg, transparent 49.5%, #4A6FA520 49.5%, #4A6FA520 50.5%, transparent 50.5%),
+        linear-gradient(135deg, #2A7B7B 0%, #4A6FA5 50%, #2A7B7B 100%);
+      background-size: 24px 24px, 24px 24px, 100% 100%;
+    }
+
+    .visual-techdash {
+      background: var(--bg-subtle);
+      position: relative;
+    }
+    .visual-techdash::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, #8B4513 6px, transparent 6px),
+        radial-gradient(circle at 55% 65%, #2A7B7B 8px, transparent 8px),
+        radial-gradient(circle at 75% 25%, #4A6FA5 5px, transparent 5px),
+        radial-gradient(circle at 40% 80%, #5A7B4A 7px, transparent 7px),
+        radial-gradient(circle at 85% 70%, #C8875A 4px, transparent 4px),
+        radial-gradient(circle at 15% 60%, #7B7068 5px, transparent 5px),
+        radial-gradient(circle at 60% 20%, #5A7B4A 6px, transparent 6px),
+        radial-gradient(circle at 30% 45%, #4A6FA5 4px, transparent 4px),
+        radial-gradient(circle at 90% 40%, #2A7B7B 5px, transparent 5px),
+        radial-gradient(circle at 50% 10%, #8B4513 3px, transparent 3px);
+      opacity: 0.7;
+    }
+
+    .visual-superapp {
+      background: linear-gradient(145deg, #A0522D 0%, #8B4513 35%, #6B3410 70%, #4A2508 100%);
+    }
+    [data-theme="dark"] .visual-superapp {
+      background: linear-gradient(145deg, #C8875A 0%, #A0522D 35%, #8B4513 70%, #6B3410 100%);
+    }
+
+    .visual-fourier {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 10px,
+          var(--border) 10px,
+          var(--border) 11px
+        ),
+        var(--bg-subtle);
+      position: relative;
+    }
+    .visual-fourier::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 120% 30% at 0% 50%, var(--accent) 0%, transparent 100%),
+        radial-gradient(ellipse 120% 30% at 25% 70%, transparent 0%, var(--accent) 30%, transparent 60%),
+        radial-gradient(ellipse 120% 20% at 50% 40%, var(--accent) 0%, transparent 100%),
+        radial-gradient(ellipse 120% 25% at 75% 60%, transparent 0%, var(--accent) 30%, transparent 60%),
+        radial-gradient(ellipse 120% 30% at 100% 50%, var(--accent) 0%, transparent 100%);
+      opacity: 0.15;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ════ NAV ════ -->
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">index</a>
+      <a href="writing.html"><span data-lang="es">escritos</span><span data-lang="en">writing</span></a>
+      <a href="notes.html"><span data-lang="es">notas</span><span data-lang="en">notes</span></a>
+      <a href="simulations.html"><span data-lang="es">simulaciones</span><span data-lang="en">simulations</span></a>
+      <a href="art.html" class="active"><span data-lang="es">arte</span><span data-lang="en">art</span></a>
+      <a href="reading.html"><span data-lang="es">lecturas</span><span data-lang="en">reading</span></a>
+      <a href="cv.html">cv</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none">
+          <path d="M21.75 15.5A9.72 9.72 0 018.5 2.25 9.75 9.75 0 1021.75 15.5z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════ PAGE HEADER ════ -->
+  <section class="page-header fade-in">
+    <h1>
+      <span data-lang="es">Arte & Dise&ntilde;o</span>
+      <span data-lang="en">Art & Design</span>
+    </h1>
+    <p class="page-subtitle">
+      <span data-lang="es">Proyectos seleccionados de dise&ntilde;o web, interfaces de datos y sistemas visuales.</span>
+      <span data-lang="en">Selected projects in web design, data interfaces, and visual systems.</span>
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ════ GALLERY ════ -->
+  <section class="index-section">
+    <div class="section-label fade-in">
+      <span data-lang="es">Proyectos</span>
+      <span data-lang="en">Projects</span>
+    </div>
+
+    <div class="art-grid stagger">
+
+      <!-- 1. Vortice -->
+      <div class="art-card fade-in">
+        <div class="art-card-visual visual-vortice"></div>
+        <div class="art-card-info">
+          <div class="art-card-title">V&oacute;rtice</div>
+          <div class="art-card-desc">
+            <span data-lang="es">Marca de joyer&iacute;a escult&oacute;rica. Lujo oscuro industrial.</span>
+            <span data-lang="en">Sculptural jewelry brand. Industrial dark luxury.</span>
+          </div>
+          <div class="art-card-meta">Next.js &middot; Framer Motion</div>
+        </div>
+      </div>
+
+      <!-- 2. Tu Pagina en 48 -->
+      <div class="art-card fade-in">
+        <div class="art-card-visual visual-tupagina"></div>
+        <div class="art-card-info">
+          <div class="art-card-title">Tu P&aacute;gina en 48</div>
+          <div class="art-card-desc">
+            <span data-lang="es">Servicio de dise&ntilde;o web express. Grilla de puntos + tipograf&iacute;a serif.</span>
+            <span data-lang="en">Express web design service. Dot grid + serif typography.</span>
+          </div>
+          <div class="art-card-meta">Next.js</div>
+        </div>
+      </div>
+
+      <!-- 3. Observatorio Uraba -->
+      <div class="art-card fade-in">
+        <div class="art-card-visual visual-observatorio"></div>
+        <div class="art-card-info">
+          <div class="art-card-title">Observatorio Urab&aacute;</div>
+          <div class="art-card-desc">
+            <span data-lang="es">Dashboards de inteligencia territorial. Mapas Deck.gl + datos.</span>
+            <span data-lang="en">Territorial intelligence dashboards. Deck.gl maps + data.</span>
+          </div>
+          <div class="art-card-meta">React &middot; Deck.gl</div>
+        </div>
+      </div>
+
+      <!-- 4. Colombia Tech Dashboard -->
+      <div class="art-card fade-in">
+        <div class="art-card-visual visual-techdash"></div>
+        <div class="art-card-info">
+          <div class="art-card-title">Colombia Tech Dashboard</div>
+          <div class="art-card-desc">
+            <span data-lang="es">Visualizaci&oacute;n del ecosistema startup. Gr&aacute;ficos D3.js.</span>
+            <span data-lang="en">Startup ecosystem visualization. D3.js charts.</span>
+          </div>
+          <div class="art-card-meta">Next.js &middot; D3</div>
+        </div>
+      </div>
+
+      <!-- 5. SuperApp Tributaria -->
+      <div class="art-card fade-in">
+        <div class="art-card-visual visual-superapp"></div>
+        <div class="art-card-info">
+          <div class="art-card-title">SuperApp Tributaria</div>
+          <div class="art-card-desc">
+            <span data-lang="es">UI de plataforma tributaria. 35 interfaces de calculadoras.</span>
+            <span data-lang="en">Tax platform UI. 35 calculator interfaces.</span>
+          </div>
+          <div class="art-card-meta">Next.js &middot; Tailwind</div>
+        </div>
+      </div>
+
+      <!-- 6. Fourier.dev -->
+      <div class="art-card fade-in">
+        <div class="art-card-visual visual-fourier"></div>
+        <div class="art-card-info">
+          <div class="art-card-title">Fourier.dev</div>
+          <div class="art-card-desc">
+            <span data-lang="es">Sitio corporativo. Patrones de grilla + visuales de descomposici&oacute;n de Fourier.</span>
+            <span data-lang="en">Company site. Grid patterns + Fourier decomposition visuals.</span>
+          </div>
+          <div class="art-card-meta">Next.js</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer class="fade-in">
+    <span class="footer-copy">&copy; 2026 Cristian Espinal Maya</span>
+    <div class="social-links">
+      <a href="https://github.com/Cespial" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+      <a href="https://x.com/cespial" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://linkedin.com/in/cespial" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://public.tableau.com/app/profile/cristian.espinal.maya" target="_blank" rel="noopener" aria-label="Tableau"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.654 0v2.311h-1.15V0h1.15zm4.828 1.394v3.118h-1.15V1.394h1.15zm-9.68 0v3.118H5.651V1.394h1.15zM12 3.31h3.456v1.15H12V3.31zm-7.345 0h3.456v1.15H4.655V3.31zm14.69 0h3.456v1.15h-3.456V3.31zM11.654 4.46v3.456H10.5V4.46h1.15zM6.827 5.61v3.118H5.677V5.61h1.15zm9.656 0v3.118h-1.15V5.61h1.15zM12 7.916h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM1.154 9.066v3.118H0V9.066h1.154zm21.692 0V12.184h-1.154V9.066h1.154zM12 9.066h7.345v1.154H12V9.066zm-7.345 0H12v1.154H4.655V9.066zm7 1.154v3.456h-1.15v-3.456h1.15zm-4.828 1.15v3.118H5.677v-3.118h1.15zm9.656 0v3.118h-1.15v-3.118h1.15zM12 12.52h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM11.654 13.672v3.456H10.5v-3.456h1.15zm-4.827 1.15v3.118H5.677v-3.118h1.15zm9.656 0v3.118h-1.15v-3.118h1.15zM12 16.128h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM11.654 17.978v3.456H10.5v-3.456h1.15zm-4.827 1.15v3.118H5.677V19.128h1.15zm9.656 0v3.118h-1.15V19.128h1.15zM11.654 21.69V24H10.5v-2.311h1.15z"/></svg></a>
+      <a href="mailto:cristian@fourier.dev" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></a>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ════ SHARED JS ════ -->
+<script>
+const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
+function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
+const sL=localStorage.getItem('lang');if(sL)setLang(sL);
+langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
+const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
+function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
+const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
+themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

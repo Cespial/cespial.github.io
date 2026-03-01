@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notas / Notes — Cristian Espinal Maya</title>
+  <meta name="description" content="Short technical notes and TILs on geospatial analysis, AI tooling, web dev, and data engineering.">
+  <meta property="og:title" content="Notes — Cristian Espinal Maya">
+  <meta property="og:description" content="Short technical notes and TILs on PostGIS, Supabase, Claude API, Google Earth Engine, Next.js, Playwright, Pinecone, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cespial.github.io/notes.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- ════ NAV ════ -->
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">index</a>
+      <a href="writing.html"><span data-lang="es">escritos</span><span data-lang="en">writing</span></a>
+      <a href="notes.html" class="active"><span data-lang="es">notas</span><span data-lang="en">notes</span></a>
+      <a href="simulations.html"><span data-lang="es">simulaciones</span><span data-lang="en">simulations</span></a>
+      <a href="art.html">art</a>
+      <a href="reading.html"><span data-lang="es">lecturas</span><span data-lang="en">reading</span></a>
+      <a href="cv.html">cv</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none">
+          <path d="M21.75 15.5A9.72 9.72 0 018.5 2.25 9.75 9.75 0 1021.75 15.5z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════ HEADER ════ -->
+  <section class="page-header fade-in">
+    <h1>
+      <span data-lang="es">Notas</span>
+      <span data-lang="en">Notes</span>
+    </h1>
+    <p class="page-subtitle">
+      <span data-lang="es">Apuntes cortos sobre herramientas, patrones y cosas que aprendo construyendo plataformas, pipelines geoespaciales y sistemas de IA.</span>
+      <span data-lang="en">Short notes on tools, patterns, and things I learn while building platforms, geospatial pipelines, and AI systems.</span>
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ════ NOTES ════ -->
+  <section class="index-section fade-in">
+    <div class="section-label">
+      <span data-lang="es">notas t&eacute;cnicas</span>
+      <span data-lang="en">technical notes</span>
+    </div>
+
+    <ul class="entry-list stagger">
+
+      <!-- 1. PostGIS -->
+      <li class="entry-item fade-in">
+        <div>
+          <span class="entry-title">PostGIS: Spatial joins for municipal boundaries</span>
+        </div>
+        <p class="entry-desc">
+          <span data-lang="es">Usando <code>ST_Intersects</code> y <code>ST_Within</code> para consultas geoespaciales eficientes sobre los l&iacute;mites municipales DANE de Colombia. Indexaci&oacute;n GiST, simplificaci&oacute;n de geometr&iacute;as y patrones de join para tablas con millones de puntos.</span>
+          <span data-lang="en">Using <code>ST_Intersects</code> and <code>ST_Within</code> for efficient geospatial queries on Colombian DANE municipal boundaries. GiST indexing, geometry simplification, and join patterns for tables with millions of points.</span>
+        </p>
+        <div class="entry-meta">postgis &middot; supabase &middot; dane &middot; 2025</div>
+      </li>
+
+      <!-- 2. Supabase RLS -->
+      <li class="entry-item fade-in">
+        <div>
+          <span class="entry-title">Supabase RLS for multi-tenant dashboards</span>
+        </div>
+        <p class="entry-desc">
+          <span data-lang="es">Patrones de Row-Level Security para aislar datos institucionales entre observatorios. Pol&iacute;ticas basadas en <code>auth.jwt()</code>, roles por organizaci&oacute;n y estrategias de testing para RLS en entornos multitenant.</span>
+          <span data-lang="en">Row-level security patterns for isolating institutional data across observatories. Policies based on <code>auth.jwt()</code>, org-scoped roles, and RLS testing strategies for multi-tenant environments.</span>
+        </p>
+        <div class="entry-meta">supabase &middot; rls &middot; postgresql &middot; 2025</div>
+      </li>
+
+      <!-- 3. Claude API -->
+      <li class="entry-item fade-in">
+        <div>
+          <span class="entry-title">Claude API: Structured outputs for invoice OCR</span>
+        </div>
+        <p class="entry-desc">
+          <span data-lang="es">Obtener extracci&oacute;n JSON confiable de facturas colombianas escaneadas usando <code>tool_use</code>. Definici&oacute;n de schemas para NIT, conceptos ICA y l&iacute;neas de facturaci&oacute;n. Manejo de errores de parsing y estrategias de retry.</span>
+          <span data-lang="en">Getting reliable JSON extraction from scanned Colombian invoices using <code>tool_use</code>. Schema definition for NIT, ICA tax concepts, and invoice line items. Parse error handling and retry strategies.</span>
+        </p>
+        <div class="entry-meta">claude &middot; tool_use &middot; ocr &middot; 2025</div>
+      </li>
+
+      <!-- 4. Google Earth Engine -->
+      <li class="entry-item fade-in">
+        <div>
+          <span class="entry-title">Google Earth Engine: LULC classification workflow</span>
+        </div>
+        <p class="entry-desc">
+          <span data-lang="es">Clasificaci&oacute;n Random Forest de compuestos Sentinel-2 para mapeo de uso de suelo en Antioquia. Composici&oacute;n temporal libre de nubes, selecci&oacute;n de bandas espectrales, &iacute;ndices de vegetaci&oacute;n y validaci&oacute;n con matrices de confusi&oacute;n.</span>
+          <span data-lang="en">Random Forest classification of Sentinel-2 composites for land use mapping in Antioquia. Cloud-free temporal compositing, spectral band selection, vegetation indices, and validation with confusion matrices.</span>
+        </p>
+        <div class="entry-meta">gee &middot; sentinel-2 &middot; random forest &middot; 2024</div>
+      </li>
+
+      <!-- 5. Next.js App Router -->
+      <li class="entry-item fade-in">
+        <div>
+          <span class="entry-title">Next.js App Router: Server components for dashboards</span>
+        </div>
+        <p class="entry-desc">
+          <span data-lang="es">Patrones para hacer streaming de grandes conjuntos de datos en dashboards de observatorios. Uso de <code>Suspense</code>, server components as&iacute;ncronos y carga progresiva de tablas con +50k filas sin bloquear el hilo principal.</span>
+          <span data-lang="en">Patterns for streaming large datasets in observatory dashboards. Using <code>Suspense</code>, async server components, and progressive table loading for 50k+ rows without blocking the main thread.</span>
+        </p>
+        <div class="entry-meta">next.js &middot; react &middot; server components &middot; 2024</div>
+      </li>
+
+      <!-- 6. Playwright stealth -->
+      <li class="entry-item fade-in">
+        <div>
+          <span class="entry-title">Playwright stealth mode for job platform scraping</span>
+        </div>
+        <p class="entry-desc">
+          <span data-lang="es">Evadiendo detecci&oacute;n de bots en Computrabajo y ElEmpleo con el plugin stealth de Playwright. Rotaci&oacute;n de user-agents, delays aleatorios, fingerprinting de navegador y estrategias de paginaci&oacute;n para extraer vacantes laborales.</span>
+          <span data-lang="en">Bypassing bot detection on Computrabajo and ElEmpleo with Playwright stealth plugin. User-agent rotation, random delays, browser fingerprinting, and pagination strategies for extracting job listings.</span>
+        </p>
+        <div class="entry-meta">playwright &middot; scraping &middot; python &middot; 2024</div>
+      </li>
+
+      <!-- 7. Pinecone -->
+      <li class="entry-item fade-in">
+        <div>
+          <span class="entry-title">Pinecone: Multilingual embeddings for legal RAG</span>
+        </div>
+        <p class="entry-desc">
+          <span data-lang="es">Usando <code>multilingual-e5-large</code> para recuperaci&oacute;n de estatutos tributarios en espa&ntilde;ol con mejora de consultas. Chunking de documentos legales, metadata filtering por art&iacute;culo y a&ntilde;o, y re-ranking para mejorar precisi&oacute;n en RAG.</span>
+          <span data-lang="en">Using <code>multilingual-e5-large</code> for Spanish tax statute retrieval with query enhancement. Legal document chunking, metadata filtering by article and year, and re-ranking for improved RAG precision.</span>
+        </p>
+        <div class="entry-meta">pinecone &middot; embeddings &middot; rag &middot; 2025</div>
+      </li>
+
+      <!-- 8. Telegram bots -->
+      <li class="entry-item fade-in">
+        <div>
+          <span class="entry-title">Deploying Telegram bots with systemd</span>
+        </div>
+        <p class="entry-desc">
+          <span data-lang="es">Despliegue confiable de bots Python de larga ejecuci&oacute;n en un VPS con reinicios autom&aacute;ticos. Configuraci&oacute;n de unit files de systemd, logging con journald, variables de entorno y monitoreo b&aacute;sico de salud del proceso.</span>
+          <span data-lang="en">Reliable long-running Python bot deployment on a VPS with automatic restarts. Systemd unit file configuration, journald logging, environment variable management, and basic process health monitoring.</span>
+        </p>
+        <div class="entry-meta">systemd &middot; telegram &middot; python &middot; 2024</div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer class="fade-in">
+    <span class="footer-copy">&copy; 2026 Cristian Espinal Maya</span>
+    <div class="social-links">
+      <a href="https://github.com/Cespial" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+      <a href="https://x.com/cespial" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://linkedin.com/in/cespial" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://public.tableau.com/app/profile/cristian.espinal.maya" target="_blank" rel="noopener" aria-label="Tableau"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.654 0v2.311h-1.15V0h1.15zm4.828 1.394v3.118h-1.15V1.394h1.15zm-9.68 0v3.118H5.651V1.394h1.15zM12 3.31h3.456v1.15H12V3.31zm-7.345 0h3.456v1.15H4.655V3.31zm14.69 0h3.456v1.15h-3.456V3.31zM11.654 4.46v3.456H10.5V4.46h1.15zM6.827 5.61v3.118H5.677V5.61h1.15zm9.656 0v3.118h-1.15V5.61h1.15zM12 7.916h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM1.154 9.066v3.118H0V9.066h1.154zm21.692 0V12.184h-1.154V9.066h1.154zM12 9.066h7.345v1.154H12V9.066zm-7.345 0H12v1.154H4.655V9.066zm7 1.154v3.456h-1.15v-3.456h1.15zm-4.828 1.15v3.118H5.677v-3.118h1.15zm9.656 0v3.118h-1.15v-3.118h1.15zM12 12.52h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM11.654 13.672v3.456H10.5v-3.456h1.15zm-4.827 1.15v3.118H5.677v-3.118h1.15zm9.656 0v3.118h-1.15v-3.118h1.15zM12 16.128h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM11.654 17.978v3.456H10.5v-3.456h1.15zm-4.827 1.15v3.118H5.677V19.128h1.15zm9.656 0v3.118h-1.15V19.128h1.15zM11.654 21.69V24H10.5v-2.311h1.15z"/></svg></a>
+      <a href="mailto:cristian@fourier.dev" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></a>
+    </div>
+  </footer>
+</div>
+
+<script>
+// ══════════════════════════════════
+// LANGUAGE
+// ══════════════════════════════════
+const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
+function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
+const sL=localStorage.getItem('lang');if(sL)setLang(sL);
+langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
+
+// ══════════════════════════════════
+// THEME
+// ══════════════════════════════════
+const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
+function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
+const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
+themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+// ══════════════════════════════════
+// SCROLL FADE-IN
+// ══════════════════════════════════
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

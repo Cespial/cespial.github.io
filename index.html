@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cristian Espinal Maya</title>
-  <meta name="description" content="Economist, Software Engineer & Data Intelligence — Medellín, Colombia">
+  <meta name="description" content="Economist, Software Engineer & Remote Sensing Researcher — Medellín, Colombia">
   <meta property="og:title" content="Cristian Espinal Maya">
   <meta property="og:description" content="Economist & Software Engineer building AI-powered platforms, territorial intelligence systems, and geospatial research tools in Medellín, Colombia.">
   <meta property="og:type" content="website">
@@ -12,879 +12,259 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --serif: 'Cormorant Garamond', 'Georgia', serif;
-      --mono: 'IBM Plex Mono', 'Menlo', monospace;
-
-      --bg: #FAF8F5;
-      --bg-subtle: #F2EFEA;
-      --text: #1A1714;
-      --text-secondary: #6B6560;
-      --text-tertiary: #9B9590;
-      --accent: #8B4513;
-      --accent-hover: #A0522D;
-      --border: #E5E0D8;
-      --selection-bg: #8B451320;
-      --link-underline: #8B451340;
-    }
-
-    [data-theme="dark"] {
-      --bg: #141210;
-      --bg-subtle: #1E1C18;
-      --text: #E8E4DE;
-      --text-secondary: #9B9590;
-      --text-tertiary: #6B6560;
-      --accent: #C8875A;
-      --accent-hover: #D4976A;
-      --border: #2A2825;
-      --selection-bg: #C8875A20;
-      --link-underline: #C8875A40;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    ::selection {
-      background: var(--selection-bg);
-      color: var(--accent);
-    }
-
-    html {
-      font-size: 18px;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--serif);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      transition: background 0.5s ease, color 0.4s ease;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-    }
-
-    .page {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ── Navigation ── */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2.5rem 0 1rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 3rem;
-    }
-
-    .nav-left {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-left a {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: var(--text-secondary);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      text-transform: lowercase;
-      transition: color 0.3s ease;
-    }
-
-    .nav-left a:hover,
-    .nav-left a.active {
-      color: var(--text);
-    }
-
-    .theme-toggle {
-      appearance: none;
-      border: none;
-      background: none;
-      cursor: pointer;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: background 0.3s ease;
-      color: var(--text-secondary);
-      flex-shrink: 0;
-    }
-
-    .theme-toggle:hover {
-      background: var(--bg-subtle);
-      color: var(--text);
-    }
-
-    .theme-toggle svg {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.4s ease, opacity 0.3s ease;
-    }
-
-    /* ── Hero ── */
-    .hero {
-      padding: 1rem 0 3.5rem;
-    }
-
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: 2.4rem;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero .subtitle {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: var(--text-tertiary);
-      letter-spacing: 0.03em;
-      margin-bottom: 1.8rem;
-    }
-
-    .hero .bio {
-      font-size: 1.05rem;
-      font-weight: 400;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      max-width: 580px;
-    }
-
-    .hero .bio strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    a.text-link {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--link-underline);
-      transition: border-color 0.3s ease, color 0.3s ease;
-    }
-
-    a.text-link:hover {
-      color: var(--accent-hover);
-      border-color: var(--accent);
-    }
-
-    /* ── Divider ── */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin: 0 0 3rem;
-    }
-
-    /* ── Section ── */
-    .index-section {
-      margin-bottom: 3.5rem;
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-tertiary);
-      margin-bottom: 1.4rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* ── Project List ── */
-    .project-list {
-      list-style: none;
-    }
-
-    .project-item {
-      padding: 0.9rem 0;
-    }
-
-    .project-item a {
-      text-decoration: none;
-      display: block;
-    }
-
-    .project-title {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text);
-      transition: color 0.3s ease;
-      display: inline;
-    }
-
-    .project-item a:hover .project-title {
-      color: var(--accent);
-    }
-
-    .project-arrow {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--text-tertiary);
-      margin-left: 0.4rem;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .project-item a:hover .project-arrow {
-      transform: translateX(3px);
-      color: var(--accent);
-    }
-
-    .project-desc {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      margin-top: 0.2rem;
-      line-height: 1.65;
-    }
-
-    .project-meta {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--text-tertiary);
-      margin-top: 0.35rem;
-      letter-spacing: 0.02em;
-    }
-
-    /* ── Experience Timeline ── */
-    .timeline {
-      list-style: none;
-    }
-
-    .timeline-item {
-      padding: 1rem 0;
-      padding-left: 1.2rem;
-      border-left: 1px solid var(--border);
-      position: relative;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -3px;
-      top: 1.35rem;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--text-tertiary);
-      transition: background 0.3s ease;
-    }
-
-    .timeline-item.current::before {
-      background: var(--accent);
-      box-shadow: 0 0 0 3px var(--selection-bg);
-    }
-
-    .timeline-role {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .timeline-org {
-      font-family: var(--serif);
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      font-style: italic;
-    }
-
-    .timeline-date {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--text-tertiary);
-      letter-spacing: 0.02em;
-      margin-top: 0.15rem;
-    }
-
-    .timeline-desc {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      margin-top: 0.3rem;
-      line-height: 1.6;
-    }
-
-    /* ── Education ── */
-    .edu-item {
-      padding: 0.7rem 0;
-    }
-
-    .edu-degree {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .edu-school {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      font-style: italic;
-    }
-
-    .edu-date {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--text-tertiary);
-      letter-spacing: 0.02em;
-      margin-top: 0.1rem;
-    }
-
-    /* ── Fourier Section ── */
-    .fourier-section {
-      margin: 1rem 0 3.5rem;
-      padding: 2rem 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .fourier-section .section-label {
-      border-bottom: none;
-      padding-bottom: 0;
-      margin-bottom: 1rem;
-    }
-
-    .fourier-text {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      font-style: italic;
-    }
-
-    .fourier-text a {
-      color: var(--accent);
-      text-decoration: none;
-      font-style: normal;
-      font-weight: 500;
-      border-bottom: 1px solid var(--link-underline);
-      transition: border-color 0.3s ease, color 0.3s ease;
-    }
-
-    .fourier-text a:hover {
-      color: var(--accent-hover);
-      border-color: var(--accent);
-    }
-
-    /* ── Colophon ── */
-    .colophon {
-      margin-bottom: 3rem;
-    }
-
-    .colophon p {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--text-tertiary);
-      line-height: 1.8;
-    }
-
-    /* ── Footer ── */
-    footer {
-      padding: 2rem 0 3rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-copy {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text-tertiary);
-      letter-spacing: 0.02em;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-    }
-
-    .social-links a {
-      color: var(--text-tertiary);
-      transition: color 0.3s ease;
-      display: flex;
-      align-items: center;
-    }
-
-    .social-links a:hover {
-      color: var(--text);
-    }
-
-    .social-links svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* ── Fade-in ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .stagger > .fade-in:nth-child(1) { transition-delay: 0s; }
-    .stagger > .fade-in:nth-child(2) { transition-delay: 0.05s; }
-    .stagger > .fade-in:nth-child(3) { transition-delay: 0.1s; }
-    .stagger > .fade-in:nth-child(4) { transition-delay: 0.15s; }
-    .stagger > .fade-in:nth-child(5) { transition-delay: 0.2s; }
-    .stagger > .fade-in:nth-child(6) { transition-delay: 0.25s; }
-    .stagger > .fade-in:nth-child(7) { transition-delay: 0.3s; }
-    .stagger > .fade-in:nth-child(8) { transition-delay: 0.35s; }
-
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      html { font-size: 16px; }
-      .page { padding: 0 1.25rem; }
-      nav { padding: 2rem 0 0.75rem; margin-bottom: 2rem; }
-      .nav-left { gap: 0.9rem; }
-      .nav-left a { font-size: 0.7rem; }
-      .hero { padding: 0.5rem 0 2.5rem; }
-      .hero h1 { font-size: 2rem; }
-      .hero .subtitle { font-size: 0.72rem; }
-      .hero .bio { font-size: 0.95rem; }
-      .index-section { margin-bottom: 2.5rem; }
-      footer { padding: 1.5rem 0 2.5rem; }
-      .timeline-item { padding-left: 1rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page">
-
-    <!-- Navigation -->
-    <nav>
-      <div class="nav-left">
-        <a href="#" class="active">index</a>
-        <a href="#work">work</a>
-        <a href="#research">research</a>
-        <a href="#experience">cv</a>
-        <a href="mailto:cristian@fourier.dev">contact</a>
-      </div>
-      <button class="theme-toggle" aria-label="Toggle theme" id="themeToggle">
-        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="4.5"/>
-          <path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none">
-          <path d="M21.75 15.5A9.72 9.72 0 018.5 2.25 9.75 9.75 0 1021.75 15.5z"/>
-        </svg>
-      </button>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero fade-in">
-      <h1>Cristian Espinal Maya</h1>
-      <p class="subtitle">Economist · Software Engineer · Remote Sensing Researcher &mdash; Medellín</p>
-      <p class="bio">
-        Economist and full-stack engineer building <strong>AI-powered platforms</strong>,
-        <strong>territorial intelligence systems</strong>, and <strong>geospatial research tools</strong>
-        for Colombia. Currently leading AI &amp; automation at
-        <a class="text-link" href="https://www.prgx.com" target="_blank" rel="noopener">PRGX</a>
-        and architecting service strategy at
-        <a class="text-link" href="https://www.camaramedellin.com.co" target="_blank" rel="noopener">Cámara de Comercio de Medellín</a>.
-        Founder of <a class="text-link" href="https://fourier.dev" target="_blank" rel="noopener">Fourier</a>.
-        Researcher at <a class="text-link" href="https://www.eafit.edu.co" target="_blank" rel="noopener">EAFIT</a>,
-        combining satellite imagery, machine learning, and econometrics to study
-        post-conflict land use transitions in Colombia.
-      </p>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- ═══════════ WORK INDEX ═══════════ -->
-    <section id="work">
-
-      <!-- Platforms -->
-      <div class="index-section fade-in">
-        <h2 class="section-label">Platforms</h2>
-        <ul class="project-list stagger">
-          <li class="project-item fade-in">
-            <a href="https://superapp-tributaria-colombia.vercel.app" target="_blank" rel="noopener">
-              <span class="project-title">SuperApp Tributaria Colombia</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Colombia's most comprehensive tax platform. 35 calculators, 1,294+ articles of the Tax Statute indexed, AI chat with RAG.</p>
-              <p class="project-meta">Next.js · Claude API · Pinecone · TypeScript</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/mga-estructurador" target="_blank" rel="noopener">
-              <span class="project-title">MGA Estructurador</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Platform for structuring government grant projects under Colombia's MGA methodology with contextual AI assistance.</p>
-              <p class="project-meta">Next.js · Supabase · Zod · TypeScript</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/factura-app" target="_blank" rel="noopener">
-              <span class="project-title">Factura App</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">SaaS dashboard for Colombian electronic invoicing. Multi-tenant architecture with real-time analytics.</p>
-              <p class="project-meta">Next.js · Supabase · TypeScript</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/vfpa-jic" target="_blank" rel="noopener">
-              <span class="project-title">VFPA</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Financial viability calculator for academic programs. 7-step wizard with 24-semester projections and sensitivity analysis.</p>
-              <p class="project-meta">Next.js · Zustand · Recharts · ExcelJS</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Observatories & Territorial Data -->
-      <div class="index-section fade-in">
-        <h2 class="section-label">Observatories &amp; Territorial Data</h2>
-        <ul class="project-list stagger">
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/observatorio-laboral-uraba" target="_blank" rel="noopener">
-              <span class="project-title">Observatorio Regional de Urabá</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Territorial intelligence for 11 municipalities &mdash; 55 tables, 123K+ records, 16 official sources. Geospatial, socioeconomic, security, health &amp; labor data.</p>
-              <p class="project-meta">FastAPI · PostGIS · Deck.gl · MapLibre GL</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/observatorio-concejo-medellin" target="_blank" rel="noopener">
-              <span class="project-title">Observatorio Concejo de Medellín</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Legislative observatory for the city council. 6 thematic dashboards, initiative tracking, and per-comuna mapping.</p>
-              <p class="project-meta">Next.js · Mapbox GL · Recharts · Supabase</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial" target="_blank" rel="noopener">
-              <span class="project-title">Colombia Tech Dashboard</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Interactive dashboard mapping 2,126+ Colombian startups, $362M invested, sector analysis and geographic distribution.</p>
-              <p class="project-meta">Next.js · D3.js · React Query · Express</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/marinilla_empleos" target="_blank" rel="noopener">
-              <span class="project-title">Labor Market Intelligence</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Multi-source job scraper for 23 municipalities across 8 platforms. NLP skill extraction and salary analysis.</p>
-              <p class="project-meta">Python · Playwright · NLTK · pandas</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/hptu-localizacion" target="_blank" rel="noopener">
-              <span class="project-title">HPTU Site Selection</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Multi-criteria decision analysis with 2.6M+ records and interactive maps for institutional site selection.</p>
-              <p class="project-meta">MCDA · Python · GIS</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Invoicing & Fiscal -->
-      <div class="index-section fade-in">
-        <h2 class="section-label">Invoicing &amp; Fiscal Tools</h2>
-        <ul class="project-list stagger">
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/declaraciones_ICA" target="_blank" rel="noopener">
-              <span class="project-title">Declaraciones ICA</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Municipal tax declaration platform for Antioquia with AI-powered rate extraction per municipality.</p>
-              <p class="project-meta">Next.js · Claude API · TypeScript</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/Mi_OCR_Facturas" target="_blank" rel="noopener">
-              <span class="project-title">Mi OCR Facturas</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Invoice data extraction using Claude Vision API. Scanned documents to structured Excel output.</p>
-              <p class="project-meta">Python · Claude Vision API</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/auxiliar-contable-digital-main" target="_blank" rel="noopener">
-              <span class="project-title">Miauxi</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">AI-powered digital accounting assistant. Natural language interface for bookkeeping tasks.</p>
-              <p class="project-meta">Next.js · AI · TypeScript</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Tools & Experiments -->
-      <div class="index-section fade-in">
-        <h2 class="section-label">Tools &amp; Experiments</h2>
-        <ul class="project-list stagger">
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial" target="_blank" rel="noopener">
-              <span class="project-title">FincaBot</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">AI-powered Telegram bot for farm task management. Natural language and voice commands in Spanish.</p>
-              <p class="project-meta">Python · Claude API · Whisper · SQLite</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/ms-franchise-neg-main" target="_blank" rel="noopener">
-              <span class="project-title">Franchise Microservice</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Reactive microservice with Hexagonal Architecture, Spring WebFlux, R2DBC, deployed on AWS ECS.</p>
-              <p class="project-meta">Java · Spring WebFlux · R2DBC · AWS</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/IUPB" target="_blank" rel="noopener">
-              <span class="project-title">Institutional Analytics (IUPB)</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">SNIES, Saber Pro/TyT, dropout analysis and academic supply dashboards for higher education.</p>
-              <p class="project-meta">R · Statistical Analysis</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Landing Pages -->
-      <div class="index-section fade-in">
-        <h2 class="section-label">Design &amp; Landing Pages</h2>
-        <ul class="project-list stagger">
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/Vortice" target="_blank" rel="noopener">
-              <span class="project-title">Vórtice</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Sculptural jewelry brand. Industrial dark luxury aesthetic with 3D-inspired visuals.</p>
-              <p class="project-meta">Next.js · Framer Motion · TypeScript</p>
-            </a>
-          </li>
-          <li class="project-item fade-in">
-            <a href="https://github.com/Cespial/techos-espinal-landing" target="_blank" rel="noopener">
-              <span class="project-title">Tu Página en 48</span>
-              <span class="project-arrow">&#8594;</span>
-              <p class="project-desc">Express web design service. High-conversion landing with animated SVG flow, 3-tier pricing.</p>
-              <p class="project-meta">Next.js · Framer Motion · TypeScript</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-    </section>
-
-    <!-- ═══════════ RESEARCH ═══════════ -->
-    <section id="research" class="index-section fade-in">
-      <h2 class="section-label">Research &mdash; EAFIT</h2>
-      <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.7;margin-bottom:1.2rem;">
-        Academic research using Google Earth Engine, Sentinel imagery, and ensemble machine learning
-        to study land use change, deforestation, and mining detection in post-conflict Colombia.
-      </p>
-      <ul class="project-list stagger">
-        <li class="project-item fade-in">
-          <a href="https://github.com/Cespial/antioquia-flood-risk" target="_blank" rel="noopener">
-            <span class="project-title">Antioquia Flood Risk</span>
-            <span class="project-arrow">&#8594;</span>
-            <p class="project-desc">Municipality-scale flood risk mapping with Sentinel-1 SAR &amp; Ensemble ML (2015&ndash;2025).</p>
-            <p class="project-meta">Google Earth Engine · Sentinel-1 · ML</p>
-          </a>
-        </li>
-        <li class="project-item fade-in">
-          <a href="https://github.com/Cespial/magdalena_medio_research" target="_blank" rel="noopener">
-            <span class="project-title">Magdalena Medio LULC</span>
-            <span class="project-arrow">&#8594;</span>
-            <p class="project-desc">Post-conflict land use/land cover transitions and ecosystem services loss in Magdalena Medio.</p>
-            <p class="project-meta">GEE · Remote Sensing · Econometrics</p>
-          </a>
-        </li>
-        <li class="project-item fade-in">
-          <a href="https://github.com/Cespial/uraba_research" target="_blank" rel="noopener">
-            <span class="project-title">Urabá Land Use Transitions</span>
-            <span class="project-arrow">&#8594;</span>
-            <p class="project-desc">Post-conflict land use transitions in Urabá, Antioquia. Satellite time-series analysis.</p>
-            <p class="project-meta">GEE · Sentinel-2 · Change Detection</p>
-          </a>
-        </li>
-        <li class="project-item fade-in">
-          <a href="https://github.com/Cespial/bajo_cauca_research" target="_blank" rel="noopener">
-            <span class="project-title">Bajo Cauca Deforestation</span>
-            <span class="project-arrow">&#8594;</span>
-            <p class="project-desc">Mining-driven deforestation analysis in Bajo Cauca, Antioquia.</p>
-            <p class="project-meta">GEE · Classification · Time Series</p>
-          </a>
-        </li>
-        <li class="project-item fade-in">
-          <a href="https://github.com/Cespial/minerio_magdalena_medio" target="_blank" rel="noopener">
-            <span class="project-title">ASGM Detection</span>
-            <span class="project-arrow">&#8594;</span>
-            <p class="project-desc">Satellite detection of artisanal and small-scale gold mining (ASGM) in Magdalena Medio.</p>
-            <p class="project-meta">GEE · Spectral Analysis · ML</p>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ═══════════ EXPERIENCE ═══════════ -->
-    <section id="experience" class="index-section fade-in">
-      <h2 class="section-label">Experience</h2>
-      <ul class="timeline stagger">
-        <li class="timeline-item current fade-in">
-          <div class="timeline-role">AI &amp; Automation Lead</div>
-          <div class="timeline-org">PRGX LATAM</div>
-          <div class="timeline-date">Feb 2026 &ndash; Present</div>
-          <p class="timeline-desc">Leading strategic implementation of AI and process automation for recovery audit capabilities.</p>
-        </li>
-        <li class="timeline-item current fade-in">
-          <div class="timeline-role">Service Architect &amp; Strategy Lead</div>
-          <div class="timeline-org">Cámara de Comercio de Medellín</div>
-          <div class="timeline-date">May 2025 &ndash; Present</div>
-          <p class="timeline-desc">Overseeing 1,400+ activities, $34B COP budget. Driving competitiveness strategies for 30,000+ companies.</p>
-        </li>
-        <li class="timeline-item current fade-in">
-          <div class="timeline-role">Postgraduate Lecturer &amp; AI Lead</div>
-          <div class="timeline-org">Institución Universitaria ESUMER</div>
-          <div class="timeline-date">Jan 2025 &ndash; Present</div>
-          <p class="timeline-desc">Teaching AI for Organizations, BI Fundamentals, and Data Analysis in the Master's in Finance program.</p>
-        </li>
-        <li class="timeline-item current fade-in">
-          <div class="timeline-role">Financial Advisor (Audit &amp; Planning)</div>
-          <div class="timeline-org">Politécnico Colombiano Jaime Isaza Cadavid</div>
-          <div class="timeline-date">Aug 2023 &ndash; Present</div>
-          <p class="timeline-desc">Audit automation tools and financial modeling for resource allocation.</p>
-        </li>
-        <li class="timeline-item current fade-in">
-          <div class="timeline-role">Research Associate — Society 5.0</div>
-          <div class="timeline-org">Corporación Interuniversitaria de Servicios (CIIID)</div>
-          <div class="timeline-date">Jan 2022 &ndash; Present</div>
-          <p class="timeline-desc">Minciencias-recognized group. Industry 4.0, Digital Transformation, Smart Supervision.</p>
-        </li>
-        <li class="timeline-item fade-in">
-          <div class="timeline-role">AI Program Lead</div>
-          <div class="timeline-org">Alcaldía de Medellín</div>
-          <div class="timeline-date">Oct &ndash; Dec 2024</div>
-          <p class="timeline-desc">Supported rollout of "Estud-IA," an AI education initiative for 400 students.</p>
-        </li>
-        <li class="timeline-item fade-in">
-          <div class="timeline-role">Data &amp; Foresight Analyst</div>
-          <div class="timeline-org">Institución Universitaria Pascual Bravo</div>
-          <div class="timeline-date">Oct 2023 &ndash; Dec 2024</div>
-          <p class="timeline-desc">Competitive intelligence dashboards and data models for institutional foresight.</p>
-        </li>
-        <li class="timeline-item fade-in">
-          <div class="timeline-role">Strategic Consultant</div>
-          <div class="timeline-org">Contraloría General de la República</div>
-          <div class="timeline-date">Oct &ndash; Dec 2022</div>
-          <p class="timeline-desc">Supported construction of Strategic Plan 2022&ndash;2026 across 5 major cities.</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ═══════════ EDUCATION ═══════════ -->
-    <section class="index-section fade-in">
-      <h2 class="section-label">Education</h2>
-      <div class="edu-item">
-        <div class="edu-degree">M.A. in Economics</div>
-        <div class="edu-school">Universidad EAFIT, Medellín</div>
-        <div class="edu-date">Sep 2023 &ndash; Dec 2024</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-degree">B.A. in Economics</div>
-        <div class="edu-school">Universidad de Medellín</div>
-        <div class="edu-date">Jan 2018 &ndash; Sep 2022</div>
-      </div>
-    </section>
-
-    <!-- ═══════════ FOURIER ═══════════ -->
-    <section id="fourier" class="fourier-section fade-in">
-      <h2 class="section-label">Fourier</h2>
-      <p class="fourier-text">
-        Fourier is a boutique nearshore software engineering firm.
-        We build with precision, rigor, and elegance &mdash;
-        partnering with US-based teams who value craftsmanship over velocity.
-        <br><br>
-        <a href="https://fourier.dev" target="_blank" rel="noopener">fourier.dev</a>
-      </p>
-    </section>
-
-    <!-- Colophon -->
-    <div class="colophon fade-in">
-      <p>
-        Built with plain HTML, CSS &amp; JS. Typeset in Cormorant Garamond &amp; IBM Plex Mono.
-      </p>
+<div class="page">
+  <nav>
+    <div class="nav-left">
+      <a href="index.html" class="active">index</a>
+      <a href="writing.html"><span data-lang="es">escritos</span><span data-lang="en">writing</span></a>
+      <a href="notes.html"><span data-lang="es">notas</span><span data-lang="en">notes</span></a>
+      <a href="simulations.html"><span data-lang="es">simulaciones</span><span data-lang="en">simulations</span></a>
+      <a href="art.html">art</a>
+      <a href="reading.html"><span data-lang="es">lecturas</span><span data-lang="en">reading</span></a>
+      <a href="cv.html">cv</a>
     </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="display:none"><path d="M21.75 15.5A9.72 9.72 0 018.5 2.25 9.75 9.75 0 1021.75 15.5z"/></svg>
+      </button>
+    </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="fade-in">
-      <span class="footer-copy">&copy; 2026 Cristian Espinal Maya</span>
-      <div class="social-links">
-        <a href="https://github.com/Cespial" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-        </a>
-        <a href="https://x.com/cespial" target="_blank" rel="noopener" aria-label="X">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://linkedin.com/in/cespial" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://public.tableau.com/app/profile/cristian.espinal.maya" target="_blank" rel="noopener" aria-label="Tableau">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.654 0v2.311h-1.15V0h1.15zm4.828 1.394v3.118h-1.15V1.394h1.15zm-9.68 0v3.118H5.651V1.394h1.15zM12 3.31h3.456v1.15H12V3.31zm-7.345 0h3.456v1.15H4.655V3.31zm14.69 0h3.456v1.15h-3.456V3.31zM11.654 4.46v3.456H10.5V4.46h1.15zM6.827 5.61v3.118H5.677V5.61h1.15zm9.656 0v3.118h-1.15V5.61h1.15zM12 7.916h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM1.154 9.066v3.118H0V9.066h1.154zm21.692 0V12.184h-1.154V9.066h1.154zM12 9.066h7.345v1.154H12V9.066zm-7.345 0H12v1.154H4.655V9.066zm7 1.154v3.456h-1.15v-3.456h1.15zm-4.828 1.15v3.118H5.677v-3.118h1.15zm9.656 0v3.118h-1.15v-3.118h1.15zM12 12.52h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM11.654 13.672v3.456H10.5v-3.456h1.15zm-4.827 1.15v3.118H5.677v-3.118h1.15zm9.656 0v3.118h-1.15v-3.118h1.15zM12 16.128h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15zM11.654 17.978v3.456H10.5v-3.456h1.15zm-4.827 1.15v3.118H5.677V19.128h1.15zm9.656 0v3.118h-1.15V19.128h1.15zM11.654 21.69V24H10.5v-2.311h1.15z"/></svg>
-        </a>
-        <a href="mailto:cristian@fourier.dev" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-        </a>
-      </div>
-    </footer>
+  <section class="hero fade-in">
+    <h1>Cristian Espinal Maya</h1>
+    <p class="subtitle">
+      <span data-lang="es">Economista · Ingeniero de Software · Investigador en Teledetección · Candidato a Doctor — Medellín</span>
+      <span data-lang="en">Economist · Software Engineer · Remote Sensing Researcher · PhD Candidate — Medellín</span>
+    </p>
+    <p class="bio" data-lang="es">
+      Economista e ingeniero full-stack construyendo <strong>plataformas impulsadas por IA</strong>,
+      <strong>sistemas de inteligencia territorial</strong> y <strong>herramientas de investigación geoespacial</strong>
+      para Colombia. Actualmente liderando IA y automatización en
+      <a class="text-link" href="https://www.prgx.com" target="_blank" rel="noopener">PRGX</a>
+      Fundador de <a class="text-link" href="https://fourier.dev" target="_blank" rel="noopener">Fourier</a>.
+      Iniciando el Doctorado en Ingeniería en la
+      <a class="text-link" href="https://unal.edu.co" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>.
+      Investigador en <a class="text-link" href="https://www.eafit.edu.co" target="_blank" rel="noopener">EAFIT</a>
+      y miembro del grupo
+      <a class="text-link" href="https://scienti.minciencias.gov.co/gruplac/jsp/visualiza/visualizagr.jsp?nro=00000000024473" target="_blank" rel="noopener">CIIID</a>
+      (reconocido por Minciencias), combinando imágenes satelitales, machine learning y econometría para estudiar
+      transiciones de uso del suelo en el posconflicto colombiano.
+    </p>
+    <p class="bio" data-lang="en">
+      Economist and full-stack engineer building <strong>AI-powered platforms</strong>,
+      <strong>territorial intelligence systems</strong>, and <strong>geospatial research tools</strong>
+      for Colombia. Currently leading AI &amp; automation at
+      <a class="text-link" href="https://www.prgx.com" target="_blank" rel="noopener">PRGX</a>
+      Founder of <a class="text-link" href="https://fourier.dev" target="_blank" rel="noopener">Fourier</a>.
+      Starting a PhD in Engineering at
+      <a class="text-link" href="https://unal.edu.co" target="_blank" rel="noopener">Universidad Nacional de Colombia</a>.
+      Researcher at <a class="text-link" href="https://www.eafit.edu.co" target="_blank" rel="noopener">EAFIT</a>
+      and member of the
+      <a class="text-link" href="https://scienti.minciencias.gov.co/gruplac/jsp/visualiza/visualizagr.jsp?nro=00000000024473" target="_blank" rel="noopener">CIIID</a>
+      research group (Minciencias-recognized), combining satellite imagery, machine learning, and econometrics to study
+      post-conflict land use transitions in Colombia.
+    </p>
+  </section>
+  <div class="divider"></div>
+</div>
 
+<!-- Graph -->
+<div class="graph-section fade-in">
+  <h2 class="section-label">
+    <span data-lang="es">Ecosistema</span><span data-lang="en">Ecosystem</span>
+  </h2>
+  <div class="graph-wrap">
+    <canvas id="graphCanvas"></canvas>
+    <div class="graph-tooltip" id="graphTooltip"></div>
+  </div>
+  <div class="graph-legend">
+    <span class="legend-item"><span class="legend-dot" style="background:var(--node-platform)"></span> <span data-lang="es">Plataformas</span><span data-lang="en">Platforms</span></span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--node-observatory)"></span> <span data-lang="es">Observatorios</span><span data-lang="en">Observatories</span></span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--node-research)"></span> <span data-lang="es">Investigación</span><span data-lang="en">Research</span></span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--node-tool)"></span> <span data-lang="es">Herramientas</span><span data-lang="en">Tools</span></span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--node-org)"></span> <span data-lang="es">Organizaciones</span><span data-lang="en">Organizations</span></span>
+    <span class="legend-item"><span class="legend-dot" style="background:var(--node-tech)"></span> Tech</span>
+  </div>
+  <p class="graph-hint">
+    <span data-lang="es">arrastra para explorar · pasa el cursor para descubrir</span>
+    <span data-lang="en">drag to explore · hover to discover</span>
+  </p>
+</div>
+
+<div class="page">
+  <!-- Index Hub -->
+  <section class="fade-in">
+    <ul class="index-hub stagger">
+      <li class="index-hub-item fade-in">
+        <a href="writing.html">
+          <span class="index-hub-title"><span data-lang="es">Escritos</span><span data-lang="en">Writing</span></span>
+          <p class="index-hub-desc">
+            <span data-lang="es">Ensayos técnicos sobre pipelines RAG, inteligencia territorial, detección satelital de minería y IA en el sector público.</span>
+            <span data-lang="en">Technical essays on RAG pipelines, territorial intelligence, satellite mining detection, and AI in the public sector.</span>
+          </p>
+        </a>
+      </li>
+      <li class="index-hub-item fade-in">
+        <a href="notes.html">
+          <span class="index-hub-title"><span data-lang="es">Notas</span><span data-lang="en">Notes</span></span>
+          <p class="index-hub-desc">
+            <span data-lang="es">Notas técnicas cortas: PostGIS, Supabase RLS, Claude API, Google Earth Engine, despliegue de bots.</span>
+            <span data-lang="en">Short technical notes: PostGIS, Supabase RLS, Claude API, Google Earth Engine, bot deployment.</span>
+          </p>
+        </a>
+      </li>
+      <li class="index-hub-item fade-in">
+        <a href="simulations.html">
+          <span class="index-hub-title"><span data-lang="es">Simulaciones</span><span data-lang="en">Simulations</span></span>
+          <p class="index-hub-desc">
+            <span data-lang="es">Fourier, Lorenz, Game of Life y visualizaciones memento mori: un reloj de vida en semanas, entrop&iacute;a textual y una calavera vanitas de part&iacute;culas.</span>
+            <span data-lang="en">Fourier, Lorenz, Game of Life and memento mori visualizations: a life clock in weeks, text entropy, and a vanitas particle skull.</span>
+          </p>
+        </a>
+      </li>
+      <li class="index-hub-item fade-in">
+        <a href="art.html">
+          <span class="index-hub-title">Art</span>
+          <p class="index-hub-desc">
+            <span data-lang="es">Galería de diseño: landing pages, visualización de datos, interfaces de observatorios y dashboards territoriales.</span>
+            <span data-lang="en">Design gallery: landing pages, data visualization, observatory interfaces, and territorial dashboards.</span>
+          </p>
+        </a>
+      </li>
+      <li class="index-hub-item fade-in">
+        <a href="reading.html">
+          <span class="index-hub-title"><span data-lang="es">Lecturas</span><span data-lang="en">Reading</span></span>
+          <p class="index-hub-desc">
+            <span data-lang="es">Libros y artículos que han formado mi pensamiento en economía, datos y tecnología.</span>
+            <span data-lang="en">Books and papers that shaped my thinking on economics, data, and technology.</span>
+          </p>
+        </a>
+      </li>
+      <li class="index-hub-item fade-in">
+        <a href="cv.html">
+          <span class="index-hub-title">CV</span>
+          <p class="index-hub-desc">
+            <span data-lang="es">Experiencia profesional, educación, habilidades técnicas e investigación.</span>
+            <span data-lang="en">Professional experience, education, technical skills, and research.</span>
+          </p>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Fourier -->
+  <section id="fourier" class="fourier-section fade-in">
+    <h2 class="section-label">Fourier</h2>
+    <p class="fourier-text">
+      <span data-lang="es">Fourier es una firma boutique de ingeniería de software nearshore. Construimos con precisión, rigor y elegancia — en alianza con equipos en EE.UU. que valoran la artesanía sobre la velocidad.</span>
+      <span data-lang="en">Fourier is a boutique nearshore software engineering firm. We build with precision, rigor, and elegance — partnering with US-based teams who value craftsmanship over velocity.</span>
+      <br><br><a href="https://fourier.dev" target="_blank" rel="noopener">fourier.dev</a>
+    </p>
+  </section>
+
+  <div class="colophon fade-in">
+    <p><span data-lang="es">Hecho con HTML, CSS y JS puro. Tipografía: Cormorant Garamond e IBM Plex Mono.</span><span data-lang="en">Built with plain HTML, CSS &amp; JS. Typeset in Cormorant Garamond &amp; IBM Plex Mono.</span></p>
   </div>
 
-  <script>
-    // Theme Toggle
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const iconSun = toggle.querySelector('.icon-sun');
-    const iconMoon = toggle.querySelector('.icon-moon');
+  <footer class="fade-in">
+    <span class="footer-copy">&copy; 2026 Cristian Espinal Maya</span>
+    <div class="social-links">
+      <a href="https://github.com/Cespial" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+      <a href="https://x.com/cespial" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://linkedin.com/in/cespial" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://public.tableau.com/app/profile/cristian.espinal.maya" target="_blank" rel="noopener" aria-label="Tableau"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.654 0v2.311h-1.15V0h1.15zm4.828 1.394v3.118h-1.15V1.394h1.15zm-9.68 0v3.118H5.651V1.394h1.15zM12 3.31h3.456v1.15H12V3.31zm-7.345 0h3.456v1.15H4.655V3.31zm14.69 0h3.456v1.15h-3.456V3.31zM11.654 4.46v3.456H10.5V4.46h1.15zM6.827 5.61v3.118H5.677V5.61h1.15zm9.656 0v3.118h-1.15V5.61h1.15zM12 7.916h3.456v1.15H12v-1.15zm-7.345 0h3.456v1.15H4.655v-1.15zm14.69 0h3.456v1.15h-3.456v-1.15z"/></svg></a>
+      <a href="mailto:cristian@fourier.dev" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></a>
+    </div>
+  </footer>
+</div>
 
-    function setTheme(theme) {
-      html.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      iconSun.style.display = theme === 'dark' ? 'none' : 'block';
-      iconMoon.style.display = theme === 'dark' ? 'block' : 'none';
-    }
+<script>
+// Lang & Theme
+const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
+function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
+const sL=localStorage.getItem('lang');if(sL)setLang(sL);
+langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
+const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
+function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
+const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
+themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
 
-    const saved = localStorage.getItem('theme');
-    if (saved) setTheme(saved);
-    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
-
-    toggle.addEventListener('click', () => {
-      setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-    });
-
-    // Scroll Reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
+// ══ FORCE GRAPH ══
+(function(){
+const canvas=document.getElementById('graphCanvas'),ctx=canvas.getContext('2d'),tooltip=document.getElementById('graphTooltip'),wrap=canvas.parentElement;
+const CAT={P:'platform',O:'observatory',R:'research',T:'tool',G:'org',K:'tech',D:'domain'};
+const rawNodes=[
+['superapp','SuperApp Tributaria',CAT.P,10],['mga','MGA Estructurador',CAT.P,7],['factura','Factura App',CAT.P,6],['vfpa','VFPA',CAT.P,6],
+['obs_uraba','Obs. Urabá',CAT.O,9],['obs_concejo','Obs. Concejo',CAT.O,8],['tech_dash','Colombia Tech',CAT.O,7],['labor','Mercado Laboral',CAT.O,6],['hptu','HPTU',CAT.O,5],
+['ica','Declaraciones ICA',CAT.T,6],['ocr','Mi OCR Facturas',CAT.T,5],['miauxi','Miauxi',CAT.T,5],['fincabot','FincaBot',CAT.T,6],['vortice','Vórtice',CAT.T,5],['tupagina','Tu Página en 48',CAT.T,5],['franchise','Franchise MS',CAT.T,5],['iupb','IUPB Analytics',CAT.T,5],
+['flood','Flood Risk',CAT.R,7],['magdalena','Magdalena LULC',CAT.R,7],['uraba_r','Urabá Research',CAT.R,6],['bajo_cauca','Bajo Cauca',CAT.R,6],['asgm','ASGM Detection',CAT.R,6],
+['ts','TypeScript',CAT.K,4],['py','Python',CAT.K,4],['nextjs','Next.js',CAT.K,4],['react','React',CAT.K,3],['claude','Claude API',CAT.K,5],['supabase','Supabase',CAT.K,4],['postgis','PostGIS',CAT.K,3],['d3','D3.js',CAT.K,3],['deckgl','Deck.gl',CAT.K,3],['fastapi','FastAPI',CAT.K,3],['gee','Earth Engine',CAT.K,5],['r','R',CAT.K,3],['java','Java',CAT.K,3],['pinecone','Pinecone',CAT.K,3],['sentinel','Sentinel',CAT.K,4],
+['prgx','PRGX',CAT.G,6],['camara','Cámara Comercio',CAT.G,7],['esumer','ESUMER',CAT.G,5],['politecnico','Politécnico JIC',CAT.G,5],['ciiid','CIIID',CAT.G,5],['alcaldia','Alcaldía Medellín',CAT.G,6],['eafit','EAFIT',CAT.G,7],['fourier','Fourier',CAT.G,7],['contraloria','Contraloría',CAT.G,5],
+['ai','AI / LLM',CAT.D,6],['geo','Geospatial',CAT.D,6],['fiscal','Fiscal Tech',CAT.D,5],['remote','Remote Sensing',CAT.D,6],['dataintel','Data Intelligence',CAT.D,6],['edu','Education',CAT.D,5]
+];
+const rawEdges=[
+['superapp','ts'],['superapp','nextjs'],['superapp','claude'],['superapp','pinecone'],['superapp','fiscal'],['superapp','ai'],['superapp','fourier'],
+['mga','ts'],['mga','nextjs'],['mga','supabase'],['mga','ai'],['mga','fourier'],
+['factura','ts'],['factura','nextjs'],['factura','supabase'],['factura','fiscal'],
+['vfpa','ts'],['vfpa','nextjs'],['vfpa','edu'],['vfpa','politecnico'],
+['obs_uraba','py'],['obs_uraba','fastapi'],['obs_uraba','postgis'],['obs_uraba','deckgl'],['obs_uraba','geo'],['obs_uraba','dataintel'],
+['obs_concejo','ts'],['obs_concejo','nextjs'],['obs_concejo','supabase'],['obs_concejo','dataintel'],['obs_concejo','alcaldia'],
+['tech_dash','ts'],['tech_dash','nextjs'],['tech_dash','d3'],['tech_dash','dataintel'],
+['labor','py'],['labor','dataintel'],['hptu','py'],['hptu','geo'],['hptu','dataintel'],
+['ica','ts'],['ica','nextjs'],['ica','claude'],['ica','fiscal'],['ica','ai'],
+['ocr','py'],['ocr','claude'],['ocr','fiscal'],['ocr','ai'],
+['miauxi','ts'],['miauxi','nextjs'],['miauxi','fiscal'],['miauxi','ai'],
+['fincabot','py'],['fincabot','claude'],['fincabot','ai'],
+['vortice','ts'],['vortice','nextjs'],['vortice','react'],
+['tupagina','ts'],['tupagina','nextjs'],['tupagina','fourier'],
+['flood','gee'],['flood','sentinel'],['flood','r'],['flood','remote'],['flood','geo'],['flood','eafit'],
+['magdalena','gee'],['magdalena','sentinel'],['magdalena','r'],['magdalena','remote'],['magdalena','geo'],['magdalena','eafit'],
+['uraba_r','gee'],['uraba_r','sentinel'],['uraba_r','remote'],['uraba_r','eafit'],
+['bajo_cauca','gee'],['bajo_cauca','sentinel'],['bajo_cauca','remote'],['bajo_cauca','eafit'],
+['asgm','gee'],['asgm','sentinel'],['asgm','remote'],['asgm','eafit'],
+['franchise','java'],['franchise','edu'],['iupb','r'],['iupb','edu'],['iupb','dataintel'],['iupb','politecnico'],
+['prgx','ai'],['camara','dataintel'],['esumer','edu'],['esumer','ai'],['ciiid','dataintel'],['alcaldia','edu'],['alcaldia','dataintel'],['eafit','remote'],['eafit','geo'],['fourier','ai'],['contraloria','dataintel']
+];
+const nodes=rawNodes.map(([id,label,cat,r])=>({id,label,cat,r:r*1.1,x:0,y:0,vx:0,vy:0}));
+const nodeMap={};nodes.forEach((n,i)=>nodeMap[n.id]=i);
+const edges=rawEdges.map(([a,b])=>[nodeMap[a],nodeMap[b]]).filter(e=>e[0]!=null&&e[1]!=null);
+const adj=nodes.map(()=>new Set());edges.forEach(([a,b])=>{adj[a].add(b);adj[b].add(a)});
+let W,H,dpr;
+function resize(){dpr=devicePixelRatio||1;W=wrap.clientWidth;H=Math.min(420,Math.max(280,W*0.55));canvas.width=W*dpr;canvas.height=H*dpr;canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}
+resize();window.addEventListener('resize',()=>{resize();initPos()});
+function initPos(){const cx=W/2,cy=H/2;nodes.forEach((n,i)=>{const a=(i/nodes.length)*Math.PI*2+Math.random()*0.5,d=60+Math.random()*Math.min(W,H)*0.3;n.x=cx+Math.cos(a)*d;n.y=cy+Math.sin(a)*d;n.vx=0;n.vy=0})}
+initPos();
+function getColor(cat){const s=getComputedStyle(document.documentElement);const m={platform:'--node-platform',observatory:'--node-observatory',research:'--node-research',tool:'--node-tool',org:'--node-org',tech:'--node-tech',domain:'--node-domain'};return s.getPropertyValue(m[cat]||'--text-tertiary').trim()}
+let dragging=null,hovered=null,simActive=false;
+function physics(){const cx=W/2,cy=H/2,N=nodes.length;
+for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){let dx=nodes[j].x-nodes[i].x,dy=nodes[j].y-nodes[i].y,d2=dx*dx+dy*dy;if(d2<1)d2=1;let d=Math.sqrt(d2),f=1800/d2,fx=dx/d*f,fy=dy/d*f;nodes[i].vx-=fx;nodes[i].vy-=fy;nodes[j].vx+=fx;nodes[j].vy+=fy}
+edges.forEach(([a,b])=>{let dx=nodes[b].x-nodes[a].x,dy=nodes[b].y-nodes[a].y,d=Math.sqrt(dx*dx+dy*dy)||0.1,f=0.004*(d-70),fx=dx/d*f,fy=dy/d*f;nodes[a].vx+=fx;nodes[a].vy+=fy;nodes[b].vx-=fx;nodes[b].vy-=fy});
+nodes.forEach(n=>{n.vx+=(cx-n.x)*0.012;n.vy+=(cy-n.y)*0.012});
+nodes.forEach((n,i)=>{if(i===dragging)return;n.vx*=0.88;n.vy*=0.88;let s=Math.sqrt(n.vx*n.vx+n.vy*n.vy);if(s>4){n.vx=n.vx/s*4;n.vy=n.vy/s*4}n.x+=n.vx;n.y+=n.vy;const p=n.r+4;if(n.x<p){n.x=p;n.vx*=-0.5}if(n.x>W-p){n.x=W-p;n.vx*=-0.5}if(n.y<p){n.y=p;n.vy*=-0.5}if(n.y>H-p){n.y=H-p;n.vy*=-0.5}})}
+function render(){const bg=getComputedStyle(document.documentElement).getPropertyValue('--graph-bg').trim();ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);const isH=hovered!==null;
+edges.forEach(([a,b])=>{const na=nodes[a],nb=nodes[b],c=isH&&(a===hovered||b===hovered);ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(nb.x,nb.y);ctx.strokeStyle=c?getColor(nodes[hovered].cat):getComputedStyle(document.documentElement).getPropertyValue(isH?'--border':'--text-tertiary').trim();ctx.globalAlpha=isH?(c?0.45:0.06):0.1;ctx.lineWidth=c?1.2:0.5;ctx.stroke()});ctx.globalAlpha=1;
+nodes.forEach((n,i)=>{const c=isH&&(i===hovered||adj[hovered].has(i)),dim=isH&&!c;ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=getColor(n.cat);ctx.globalAlpha=dim?0.12:(i===hovered?1:0.75);ctx.fill();
+if(i===hovered){ctx.beginPath();ctx.arc(n.x,n.y,n.r+4,0,Math.PI*2);ctx.fillStyle=getColor(n.cat);ctx.globalAlpha=0.15;ctx.fill()}ctx.globalAlpha=1;
+if(n.r>=7||i===hovered||c){const fs=i===hovered?10:(c?8.5:8);ctx.font=fs+"px 'IBM Plex Mono',monospace";ctx.textAlign='center';ctx.textBaseline='top';ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue(dim?'--text-tertiary':'--text').trim();ctx.globalAlpha=dim?0.2:(i===hovered?1:(c?0.85:0.5));ctx.fillText(n.label,n.x,n.y+n.r+4);ctx.globalAlpha=1}})}
+function loop(){if(!simActive)return;physics();render();requestAnimationFrame(loop)}
+const gObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!simActive){simActive=true;initPos();loop()}else if(!x.isIntersecting)simActive=false})},{threshold:0.05});gObs.observe(canvas);
+function gmp(e){const r=canvas.getBoundingClientRect(),cx=e.touches?e.touches[0].clientX:e.clientX,cy=e.touches?e.touches[0].clientY:e.clientY;return{x:cx-r.left,y:cy-r.top}}
+function findN(mx,my){for(let i=nodes.length-1;i>=0;i--){const n=nodes[i],dx=mx-n.x,dy=my-n.y;if(dx*dx+dy*dy<=(n.r+6)*(n.r+6))return i}return null}
+canvas.addEventListener('mousemove',e=>{const{x,y}=gmp(e);if(dragging!==null){nodes[dragging].x=x;nodes[dragging].y=y;nodes[dragging].vx=0;nodes[dragging].vy=0;return}const f=findN(x,y);if(f!==hovered){hovered=f;canvas.style.cursor=f!==null?'pointer':'grab';if(f!==null){tooltip.textContent=nodes[f].label;tooltip.classList.add('visible')}else tooltip.classList.remove('visible')}if(hovered!==null){tooltip.style.left=(nodes[hovered].x+nodes[hovered].r+10)+'px';tooltip.style.top=(nodes[hovered].y-10)+'px'}});
+canvas.addEventListener('mousedown',e=>{const{x,y}=gmp(e),f=findN(x,y);if(f!==null){dragging=f;canvas.style.cursor='grabbing';e.preventDefault()}});
+canvas.addEventListener('mouseup',()=>{dragging=null;canvas.style.cursor=hovered!==null?'pointer':'grab'});
+canvas.addEventListener('mouseleave',()=>{dragging=null;hovered=null;tooltip.classList.remove('visible');canvas.style.cursor='grab'});
+canvas.addEventListener('touchstart',e=>{const{x,y}=gmp(e),f=findN(x,y);if(f!==null){dragging=f;hovered=f;tooltip.textContent=nodes[f].label;tooltip.classList.add('visible');e.preventDefault()}},{passive:false});
+canvas.addEventListener('touchmove',e=>{if(dragging!==null){const{x,y}=gmp(e);nodes[dragging].x=x;nodes[dragging].y=y;nodes[dragging].vx=0;nodes[dragging].vy=0;tooltip.style.left=(x+nodes[dragging].r+10)+'px';tooltip.style.top=(y-10)+'px';e.preventDefault()}},{passive:false});
+canvas.addEventListener('touchend',()=>{dragging=null;hovered=null;tooltip.classList.remove('visible')});
+})();
+</script>
 </body>
 </html>
