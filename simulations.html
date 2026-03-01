@@ -269,7 +269,9 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
     cx.setTransform(dpr,0,0,dpr,0,0);
     if(userPath===defaultPath) makeDefault();
   }
-  let defaultPath=null,userPath=null;
+  let defaultPath=null,userPath=null,fourier;
+  let numTerms=5,time=0,drawPath=[];
+  let drawing=false,drawnPts=[];
 
   function makeDefault(){
     const path=[];
@@ -287,9 +289,6 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
 
   resize();window.addEventListener('resize',resize);
 
-  let numTerms=5,time=0,drawPath=[];
-  let drawing=false,drawnPts=[];
-
   function dft(pts){
     const N=pts.length,X=[];
     for(let k=0;k<N;k++){
@@ -304,8 +303,6 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
     }
     return X.sort((a,b)=>b.amp-a.amp);
   }
-
-  let fourier;
 
   function epicycles(x,y,rot,f,n){
     const N=Math.min(n,f.length);
