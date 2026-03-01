@@ -9,10 +9,15 @@
   <meta property="og:description" content="Technical essays on RAG pipelines, satellite remote sensing, territorial intelligence, and AI in the public sector.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cespial.github.io/writing">
+  <link rel="canonical" href="https://cespial.github.io/writing">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@cespial">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <noscript><style>.fade-in{opacity:1;transform:none;transition:none}</style></noscript>
 </head>
 <body>
 <div class="page">
@@ -21,7 +26,7 @@
   <nav>
     <div class="nav-left">
       <a href="index.html">index</a>
-      <a href="writing.html" class="active">writing</a>
+      <a href="writing.html" class="active"><span data-lang="es">escritos</span><span data-lang="en">writing</span></a>
       <a href="notes.html"><span data-lang="es">notas</span><span data-lang="en">notes</span></a>
       <a href="simulations.html"><span data-lang="es">simulaciones</span><span data-lang="en">simulations</span></a>
       <a href="art.html"><span data-lang="es">arte</span><span data-lang="en">art</span></a>
@@ -66,82 +71,77 @@
 
       <!-- 1. RAG Pipeline -->
       <li class="entry-item fade-in">
-        <a href="#">
+        <div>
           <span class="entry-title">
             <span data-lang="es">Construyendo un pipeline RAG para el Estatuto Tributario de Colombia</span>
             <span data-lang="en">Building a RAG Pipeline for Colombia's Tax Statute</span>
           </span>
-          <span class="entry-arrow">&rarr;</span>
           <p class="entry-desc">
             <span data-lang="es">Cómo indexamos 1.294 artículos del Estatuto Tributario, construimos mejora de consultas con descomposición HyDE, e integramos Claude para orientación tributaria conversacional.</span>
             <span data-lang="en">How we indexed 1,294 articles of the Estatuto Tributario, built query enhancement with HyDE decomposition, and integrated Claude for conversational tax guidance.</span>
           </p>
           <p class="entry-meta">2025</p>
-        </a>
+        </div>
       </li>
 
       <!-- 2. Territorial Intelligence -->
       <li class="entry-item fade-in">
-        <a href="#">
+        <div>
           <span class="entry-title">
             <span data-lang="es">Inteligencia territorial a escala municipal</span>
             <span data-lang="en">Territorial Intelligence at Municipal Scale</span>
           </span>
-          <span class="entry-arrow">&rarr;</span>
           <p class="entry-desc">
             <span data-lang="es">Diseñando plataformas de datos que unifican más de 16 fuentes oficiales en observatorios coherentes para 11 municipios del Urabá posconflicto.</span>
             <span data-lang="en">Designing data platforms that unify 16+ official sources into coherent observatories for 11 municipalities in post-conflict Urabá.</span>
           </p>
           <p class="entry-meta">2025</p>
-        </a>
+        </div>
       </li>
 
       <!-- 3. Satellite Detection -->
       <li class="entry-item fade-in">
-        <a href="#">
+        <div>
           <span class="entry-title">
             <span data-lang="es">Detección satelital de minería artesanal de oro</span>
             <span data-lang="en">Satellite Detection of Artisanal Gold Mining</span>
           </span>
-          <span class="entry-arrow">&rarr;</span>
           <p class="entry-desc">
             <span data-lang="es">Uso de imágenes Sentinel y análisis espectral en Google Earth Engine para mapear actividad MAPE en el Magdalena Medio.</span>
             <span data-lang="en">Using Sentinel imagery and spectral analysis in Google Earth Engine to map ASGM activity in Magdalena Medio.</span>
           </p>
           <p class="entry-meta">2024</p>
-        </a>
+        </div>
       </li>
 
       <!-- 4. AI in Public Sector -->
       <li class="entry-item fade-in">
-        <a href="#">
+        <div>
           <span class="entry-title">
             <span data-lang="es">IA en el sector público: lecciones de Estud-IA</span>
             <span data-lang="en">AI in the Public Sector: Lessons from Estud-IA</span>
           </span>
-          <span class="entry-arrow">&rarr;</span>
           <p class="entry-desc">
             <span data-lang="es">Reflexiones sobre el despliegue de un programa de educación en IA para 400 estudiantes en alianza con la Alcaldía de Medellín.</span>
             <span data-lang="en">Reflections on deploying an AI education program for 400 students in partnership with Medellín's city government.</span>
           </p>
           <p class="entry-meta">2024</p>
-        </a>
+        </div>
       </li>
 
       <!-- 5. Job Scraping -->
       <li class="entry-item fade-in">
-        <a href="#">
+        <div>
           <span class="entry-title">
             <span data-lang="es">Scraping multifuente para mercados laborales regionales</span>
             <span data-lang="en">Multi-Source Job Scraping for Regional Labor Markets</span>
           </span>
-          <span class="entry-arrow">&rarr;</span>
           <p class="entry-desc">
             <span data-lang="es">Construyendo scrapers basados en Playwright a través de 8 plataformas para mapear el empleo en 23 municipios del Oriente Antioqueño.</span>
             <span data-lang="en">Building Playwright-based scrapers across 8 platforms to map employment in 23 municipalities of Eastern Antioquia.</span>
           </p>
           <p class="entry-meta">2024</p>
-        </a>
+        </div>
       </li>
 
     </ul>
@@ -161,18 +161,6 @@
 
 </div>
 
-<!-- ════ SHARED JS ════ -->
-<script>
-const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
-function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
-const sL=localStorage.getItem('lang');if(sL)setLang(sL);
-langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
-const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
-function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
-const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
-themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
-const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
-</script>
+<script src="shared.js"></script>
 </body>
 </html>

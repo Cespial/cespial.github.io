@@ -8,11 +8,16 @@
   <meta property="og:title" content="Notes — Cristian Espinal Maya">
   <meta property="og:description" content="Short technical notes and TILs on PostGIS, Supabase, Claude API, Google Earth Engine, Next.js, Playwright, Pinecone, and more.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cespial.github.io/notes.html">
+  <meta property="og:url" content="https://cespial.github.io/notes">
+  <link rel="canonical" href="https://cespial.github.io/notes">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@cespial">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <noscript><style>.fade-in{opacity:1;transform:none;transition:none}</style></noscript>
 </head>
 <body>
 <div class="page">
@@ -67,7 +72,7 @@
       <!-- 1. PostGIS -->
       <li class="entry-item fade-in">
         <div>
-          <span class="entry-title">PostGIS: Spatial joins for municipal boundaries</span>
+          <span class="entry-title"><span data-lang="es">PostGIS: Joins espaciales para l&iacute;mites municipales</span><span data-lang="en">PostGIS: Spatial joins for municipal boundaries</span></span>
         </div>
         <p class="entry-desc">
           <span data-lang="es">Usando <code>ST_Intersects</code> y <code>ST_Within</code> para consultas geoespaciales eficientes sobre los l&iacute;mites municipales DANE de Colombia. Indexaci&oacute;n GiST, simplificaci&oacute;n de geometr&iacute;as y patrones de join para tablas con millones de puntos.</span>
@@ -79,7 +84,7 @@
       <!-- 2. Supabase RLS -->
       <li class="entry-item fade-in">
         <div>
-          <span class="entry-title">Supabase RLS for multi-tenant dashboards</span>
+          <span class="entry-title"><span data-lang="es">Supabase RLS para dashboards multitenant</span><span data-lang="en">Supabase RLS for multi-tenant dashboards</span></span>
         </div>
         <p class="entry-desc">
           <span data-lang="es">Patrones de Row-Level Security para aislar datos institucionales entre observatorios. Pol&iacute;ticas basadas en <code>auth.jwt()</code>, roles por organizaci&oacute;n y estrategias de testing para RLS en entornos multitenant.</span>
@@ -91,7 +96,7 @@
       <!-- 3. Claude API -->
       <li class="entry-item fade-in">
         <div>
-          <span class="entry-title">Claude API: Structured outputs for invoice OCR</span>
+          <span class="entry-title"><span data-lang="es">Claude API: Salidas estructuradas para OCR de facturas</span><span data-lang="en">Claude API: Structured outputs for invoice OCR</span></span>
         </div>
         <p class="entry-desc">
           <span data-lang="es">Obtener extracci&oacute;n JSON confiable de facturas colombianas escaneadas usando <code>tool_use</code>. Definici&oacute;n de schemas para NIT, conceptos ICA y l&iacute;neas de facturaci&oacute;n. Manejo de errores de parsing y estrategias de retry.</span>
@@ -103,7 +108,7 @@
       <!-- 4. Google Earth Engine -->
       <li class="entry-item fade-in">
         <div>
-          <span class="entry-title">Google Earth Engine: LULC classification workflow</span>
+          <span class="entry-title"><span data-lang="es">Google Earth Engine: Flujo de clasificaci&oacute;n LULC</span><span data-lang="en">Google Earth Engine: LULC classification workflow</span></span>
         </div>
         <p class="entry-desc">
           <span data-lang="es">Clasificaci&oacute;n Random Forest de compuestos Sentinel-2 para mapeo de uso de suelo en Antioquia. Composici&oacute;n temporal libre de nubes, selecci&oacute;n de bandas espectrales, &iacute;ndices de vegetaci&oacute;n y validaci&oacute;n con matrices de confusi&oacute;n.</span>
@@ -115,7 +120,7 @@
       <!-- 5. Next.js App Router -->
       <li class="entry-item fade-in">
         <div>
-          <span class="entry-title">Next.js App Router: Server components for dashboards</span>
+          <span class="entry-title"><span data-lang="es">Next.js App Router: Server components para dashboards</span><span data-lang="en">Next.js App Router: Server components for dashboards</span></span>
         </div>
         <p class="entry-desc">
           <span data-lang="es">Patrones para hacer streaming de grandes conjuntos de datos en dashboards de observatorios. Uso de <code>Suspense</code>, server components as&iacute;ncronos y carga progresiva de tablas con +50k filas sin bloquear el hilo principal.</span>
@@ -127,7 +132,7 @@
       <!-- 6. Playwright stealth -->
       <li class="entry-item fade-in">
         <div>
-          <span class="entry-title">Playwright stealth mode for job platform scraping</span>
+          <span class="entry-title"><span data-lang="es">Modo stealth de Playwright para scraping de empleo</span><span data-lang="en">Playwright stealth mode for job platform scraping</span></span>
         </div>
         <p class="entry-desc">
           <span data-lang="es">Evadiendo detecci&oacute;n de bots en Computrabajo y ElEmpleo con el plugin stealth de Playwright. Rotaci&oacute;n de user-agents, delays aleatorios, fingerprinting de navegador y estrategias de paginaci&oacute;n para extraer vacantes laborales.</span>
@@ -139,7 +144,7 @@
       <!-- 7. Pinecone -->
       <li class="entry-item fade-in">
         <div>
-          <span class="entry-title">Pinecone: Multilingual embeddings for legal RAG</span>
+          <span class="entry-title"><span data-lang="es">Pinecone: Embeddings multiling&uuml;es para RAG legal</span><span data-lang="en">Pinecone: Multilingual embeddings for legal RAG</span></span>
         </div>
         <p class="entry-desc">
           <span data-lang="es">Usando <code>multilingual-e5-large</code> para recuperaci&oacute;n de estatutos tributarios en espa&ntilde;ol con mejora de consultas. Chunking de documentos legales, metadata filtering por art&iacute;culo y a&ntilde;o, y re-ranking para mejorar precisi&oacute;n en RAG.</span>
@@ -151,7 +156,7 @@
       <!-- 8. Telegram bots -->
       <li class="entry-item fade-in">
         <div>
-          <span class="entry-title">Deploying Telegram bots with systemd</span>
+          <span class="entry-title"><span data-lang="es">Desplegando bots de Telegram con systemd</span><span data-lang="en">Deploying Telegram bots with systemd</span></span>
         </div>
         <p class="entry-desc">
           <span data-lang="es">Despliegue confiable de bots Python de larga ejecuci&oacute;n en un VPS con reinicios autom&aacute;ticos. Configuraci&oacute;n de unit files de systemd, logging con journald, variables de entorno y monitoreo b&aacute;sico de salud del proceso.</span>
@@ -176,28 +181,6 @@
   </footer>
 </div>
 
-<script>
-// ══════════════════════════════════
-// LANGUAGE
-// ══════════════════════════════════
-const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
-function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
-const sL=localStorage.getItem('lang');if(sL)setLang(sL);
-langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
-
-// ══════════════════════════════════
-// THEME
-// ══════════════════════════════════
-const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
-function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
-const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
-themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
-
-// ══════════════════════════════════
-// SCROLL FADE-IN
-// ══════════════════════════════════
-const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
-</script>
+<script src="shared.js"></script>
 </body>
 </html>

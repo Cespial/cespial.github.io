@@ -9,10 +9,15 @@
   <meta property="og:description" content="Annotated reading list spanning institutional economics, cognitive science, data engineering, remote sensing, and machine learning.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cespial.github.io/reading">
+  <link rel="canonical" href="https://cespial.github.io/reading">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@cespial">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <noscript><style>.fade-in{opacity:1;transform:none;transition:none}</style></noscript>
 </head>
 <body>
 <div class="page">
@@ -58,8 +63,8 @@
   <!-- ════ ECONOMICS & POLICY ════ -->
   <section class="index-section">
     <div class="section-label fade-in">
-      <span data-lang="es">Econom&iacute;a & Pol&iacute;tica</span>
-      <span data-lang="en">Economics & Policy</span>
+      <span data-lang="es">Econom&iacute;a &amp; Pol&iacute;tica</span>
+      <span data-lang="en">Economics &amp; Policy</span>
     </div>
 
     <div class="stagger">
@@ -67,7 +72,7 @@
       <!-- 1 -->
       <div class="book-item fade-in">
         <div class="book-title">Why Nations Fail</div>
-        <div class="book-author">Daron Acemoglu & James A. Robinson</div>
+        <div class="book-author">Daron Acemoglu &amp; James A. Robinson</div>
         <p class="book-note">
           <span data-lang="es">&ldquo;El argumento institucional que enmarca c&oacute;mo pienso sobre el desarrollo colombiano.&rdquo;</span>
           <span data-lang="en">&ldquo;The institutional argument that frames how I think about Colombian development.&rdquo;</span>
@@ -110,8 +115,8 @@
   <!-- ════ TECHNOLOGY & DATA ════ -->
   <section class="index-section">
     <div class="section-label fade-in">
-      <span data-lang="es">Tecnolog&iacute;a & Datos</span>
-      <span data-lang="en">Technology & Data</span>
+      <span data-lang="es">Tecnolog&iacute;a &amp; Datos</span>
+      <span data-lang="en">Technology &amp; Data</span>
     </div>
 
     <div class="stagger">
@@ -129,7 +134,7 @@
       <!-- 6 -->
       <div class="book-item fade-in">
         <div class="book-title">Remote Sensing and Image Interpretation</div>
-        <div class="book-author">Lillesand, Kiefer & Chipman</div>
+        <div class="book-author">Lillesand, Kiefer &amp; Chipman</div>
         <p class="book-note">
           <span data-lang="es">&ldquo;Texto fundamental para la investigaci&oacute;n basada en sat&eacute;lites en EAFIT.&rdquo;</span>
           <span data-lang="en">&ldquo;Core textbook for satellite-based research at EAFIT.&rdquo;</span>
@@ -139,7 +144,7 @@
       <!-- 7 -->
       <div class="book-item fade-in">
         <div class="book-title">The Pragmatic Programmer</div>
-        <div class="book-author">Andrew Hunt & David Thomas</div>
+        <div class="book-author">Andrew Hunt &amp; David Thomas</div>
         <p class="book-note">
           <span data-lang="es">&ldquo;Molde&oacute; mi filosof&iacute;a de ingenier&iacute;a en Fourier.&rdquo;</span>
           <span data-lang="en">&ldquo;Shaped my engineering philosophy at Fourier.&rdquo;</span>
@@ -149,7 +154,7 @@
       <!-- 8 -->
       <div class="book-item fade-in">
         <div class="book-title">Building Machine Learning Pipelines</div>
-        <div class="book-author">Hannes Hapke & Catherine Nelson</div>
+        <div class="book-author">Hannes Hapke &amp; Catherine Nelson</div>
         <p class="book-note">
           <span data-lang="es">&ldquo;Gu&iacute;a pr&aacute;ctica aplicada a nuestra infraestructura RAG.&rdquo;</span>
           <span data-lang="en">&ldquo;Practical guide applied to our RAG infrastructure.&rdquo;</span>
@@ -173,18 +178,6 @@
 
 </div>
 
-<!-- ════ SHARED JS ════ -->
-<script>
-const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
-function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
-const sL=localStorage.getItem('lang');if(sL)setLang(sL);
-langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
-const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
-function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
-const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
-themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
-const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
-</script>
+<script src="shared.js"></script>
 </body>
 </html>

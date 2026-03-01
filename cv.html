@@ -9,10 +9,15 @@
   <meta property="og:description" content="Experience, education, technical skills, and research background of Cristian Espinal Maya.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cespial.github.io/cv">
+  <link rel="canonical" href="https://cespial.github.io/cv">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@cespial">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <noscript><style>.fade-in{opacity:1;transform:none;transition:none}</style></noscript>
   <style>
     .skills-group { margin-bottom: 1.2rem; }
     .skills-label {
@@ -277,7 +282,7 @@
       <div class="edu-item fade-in">
         <div class="edu-degree"><span data-lang="es">Doctorado en Ingenier&iacute;a (en curso)</span><span data-lang="en">PhD in Engineering (in progress)</span></div>
         <div class="edu-school">Universidad Nacional de Colombia, Medell&iacute;n</div>
-        <div class="edu-date">2026 &ndash;</div>
+        <div class="edu-date">2026 &ndash; <span data-lang="es">Presente</span><span data-lang="en">Present</span></div>
       </div>
 
       <div class="edu-item fade-in">
@@ -317,7 +322,7 @@
     <div class="stagger">
 
       <div class="skills-group fade-in">
-        <div class="skills-label">Technical</div>
+        <div class="skills-label"><span data-lang="es">T&eacute;cnico</span><span data-lang="en">Technical</span></div>
         <div class="skills-tags">
           <span class="skill-tag">Python</span>
           <span class="skill-tag">TypeScript</span>
@@ -333,7 +338,7 @@
       </div>
 
       <div class="skills-group fade-in">
-        <div class="skills-label">AI / ML</div>
+        <div class="skills-label"><span data-lang="es">IA / ML</span><span data-lang="en">AI / ML</span></div>
         <div class="skills-tags">
           <span class="skill-tag">Claude API</span>
           <span class="skill-tag">Pinecone</span>
@@ -345,7 +350,7 @@
       </div>
 
       <div class="skills-group fade-in">
-        <div class="skills-label">Data</div>
+        <div class="skills-label"><span data-lang="es">Datos</span><span data-lang="en">Data</span></div>
         <div class="skills-tags">
           <span class="skill-tag">Power BI</span>
           <span class="skill-tag">Tableau</span>
@@ -357,7 +362,7 @@
       </div>
 
       <div class="skills-group fade-in">
-        <div class="skills-label">Methods</div>
+        <div class="skills-label"><span data-lang="es">M&eacute;todos</span><span data-lang="en">Methods</span></div>
         <div class="skills-tags">
           <span class="skill-tag">Process Mining</span>
           <span class="skill-tag">Financial Auditing</span>
@@ -406,18 +411,6 @@
 
 </div>
 
-<!-- ════ SHARED JS ════ -->
-<script>
-const langBtn=document.getElementById('langToggle'),htmlEl=document.documentElement;
-function setLang(l){htmlEl.setAttribute('lang',l);localStorage.setItem('lang',l);langBtn.textContent=l==='es'?'EN':'ES'}
-const sL=localStorage.getItem('lang');if(sL)setLang(sL);
-langBtn.addEventListener('click',()=>setLang(htmlEl.getAttribute('lang')==='es'?'en':'es'));
-const themeBtn=document.getElementById('themeToggle'),iS=themeBtn.querySelector('.icon-sun'),iM=themeBtn.querySelector('.icon-moon');
-function setTheme(t){htmlEl.setAttribute('data-theme',t);localStorage.setItem('theme',t);iS.style.display=t==='dark'?'none':'block';iM.style.display=t==='dark'?'block':'none'}
-const sT=localStorage.getItem('theme');if(sT)setTheme(sT);else if(window.matchMedia('(prefers-color-scheme:dark)').matches)setTheme('dark');
-themeBtn.addEventListener('click',()=>setTheme(htmlEl.getAttribute('data-theme')==='dark'?'light':'dark'));
-const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.fade-in').forEach(el=>ro.observe(el));
-</script>
+<script src="shared.js"></script>
 </body>
 </html>
