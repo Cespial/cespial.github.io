@@ -305,7 +305,7 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
     return X.sort((a,b)=>b.amp-a.amp);
   }
 
-  let fourier=dft(userPath||[]);
+  let fourier;
 
   function epicycles(x,y,rot,f,n){
     const N=Math.min(n,f.length);
@@ -324,7 +324,7 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
   }
 
   function render(){
-    if(!userPath||userPath.length<2){requestAnimationFrame(render);return;}
+    if(!userPath||userPath.length<2||!fourier||!fourier.length){requestAnimationFrame(render);return;}
     const bg=css('--graph-bg');cx.fillStyle=bg;cx.fillRect(0,0,W,H);
 
     // Original path
@@ -583,6 +583,8 @@ function css(v){return getComputedStyle(document.documentElement).getPropertyVal
     cv.width=W*dpr;cv.height=H*dpr;cv.style.height=H+'px';
     cx.setTransform(dpr,0,0,dpr,0,0);
   }
+
+  resize();window.addEventListener('resize',()=>{resize();render();});
 
   function render(){
     const bg=css('--graph-bg');cx.fillStyle=bg;cx.fillRect(0,0,W,H);
